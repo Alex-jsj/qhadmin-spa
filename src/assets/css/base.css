@@ -1,0 +1,195 @@
+    html,
+    body,
+    div,
+    span,
+    object,
+    li,
+    ul,
+    img iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    pre,
+    a,
+    em,
+    img,
+    strong,
+    sub,
+    sup,
+    b,
+    i,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    input,
+    figure,
+    figcaption,
+    footer,
+    header,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: none;
+        font-size: 100%;
+        font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    img {
+        width: auto;
+        height: auto;
+        border-width: 0 0 0 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .float-left {
+        float: left;
+    }
+
+    .float-right {
+        float: right;
+    }
+    /* 滚动条样式 */
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #fff;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #aaa;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+
+    .loading {
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.85);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99999;
+    }
+
+    .loading .el-icon-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #00a0e9;
+        font-size: 50px;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+
+    .loading-close {
+        display: none;
+    }
+    /* 下划线动画 */
+
+    .underline-hover {
+        position: relative;
+        text-decoration: none;
+    }
+
+    .underline-hover:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        width: 0;
+        height: 1px;
+        background: #1c2a55;
+        transition: all 0.3s;
+    }
+
+    .underline-hover:hover:before {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    [v-cloak] {
+        display: none;
+    }
+
+    html {
+        background: #e6e6e6;
+    }
+
+    body {
+        min-width: 1190px;
+    }
+
+    .public-wap {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .public-wap .main {
+        width: 1190px;
+        margin: 0 auto;
+        overflow: hidden;
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .public-wap .component {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 20px;
+        position: relative;
+    }
