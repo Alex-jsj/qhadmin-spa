@@ -182,42 +182,6 @@ body {
 #header .system-dialog-box-show p {
   opacity: 1;
 }
-#quick-nav {
-  width: 100%;
-  height: 36px;
-  background: #54c3f1;
-}
-#quick-nav .quick-container {
-  width: 1190px;
-  height: 100%;
-  margin: 0 auto;
-}
-#quick-nav .quick-container ul::after {
-  content: "";
-  display: block;
-  visibility: hidden;
-  clear: both;
-}
-#quick-nav .quick-container ul li {
-  margin-right: 32px;
-}
-#quick-nav .quick-container ul li a {
-  line-height: 36px;
-  font-size: 14px;
-  color: #fff;
-  position: relative;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#quick-nav .quick-container ul li a:hover {
-  color: #1c2a55;
-}
-#quick-nav .quick-container ul li .underline-hover:before {
-  bottom: -2px;
-}
 .transferDialog .column-selection {
   width: 100% !important;
 }
@@ -233,11 +197,6 @@ body {
 .transferDialog .dialog-info p {
   color: #888;
   font-size: 13px;
-}
-.paging {
-  width: 100%;
-  margin-top: 40px;
-  margin-bottom: 10px;
 }
 .public-wap {
   width: 100%;
@@ -1170,130 +1129,6 @@ body {
   border: 1px solid #a8def7;
   background: #dff2fc;
   color: #888;
-}
-#search .main {
-  width: 100%;
-  margin-top: 0;
-  padding-bottom: 20px;
-  background: #fff;
-}
-#search .main .component {
-  width: 1190px;
-  margin: 0 auto;
-  overflow: hidden;
-  margin-top: 20px;
-  position: relative;
-}
-#search .main .component .search-info {
-  font-size: 14px;
-  color: #888;
-}
-#search .main .component .search-body::after {
-  content: "";
-  display: block;
-  visibility: hidden;
-  clear: both;
-}
-#search .main .component .search-body .search-list {
-  width: 1007px;
-  margin-top: 48px;
-  margin-bottom: 48px;
-  border-right: 1px solid #d9d9d9;
-}
-#search .main .component .search-body .search-list::after {
-  content: "";
-  display: block;
-  visibility: hidden;
-  clear: both;
-}
-#search .main .component .search-body .search-list ul {
-  width: 788px;
-}
-#search .main .component .search-body .search-list ul > li {
-  padding-top: 18px;
-  margin-bottom: 48px;
-  border-top: 1px solid #d9d9d9;
-}
-#search .main .component .search-body .search-list ul > li:last-of-type {
-  margin-bottom: 0;
-}
-#search .main .component .search-body .search-list ul > li:hover .search-title {
-  color: #00a0e9;
-}
-#search .main .component .search-body .search-list ul > li:hover .search-form {
-  color: #333;
-}
-#search .main .component .search-body .search-list ul > li > a {
-  display: block;
-  margin-bottom: 18px;
-}
-#search .main .component .search-body .search-list ul > li .search-title {
-  font-size: 20px;
-  color: #333;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#search .main .component .search-body .search-list ul > li .search-form {
-  font-size: 20px;
-  color: #00a0e9;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#search .main .component .search-body .search-list ul > li .search-content {
-  font-size: 16px;
-  color: #888;
-  margin-bottom: 18px;
-}
-#search .main .component .search-body .search-list ul > li .search-date {
-  font-size: 14px;
-  color: #888;
-}
-#search .main .component .search-body .search-list ul > li .search-class {
-  color: #ef4f53;
-}
-#search .main .component .search-body .search-filter {
-  width: 183px;
-  margin-top: 48px;
-}
-#search .main .component .search-body .search-filter .filter-title {
-  width: 100%;
-  background: #dff2fc;
-  padding-left: 20px;
-  line-height: 40px;
-  color: #606266;
-}
-#search .main .component .search-body .search-filter .filter-date {
-  padding-left: 20px;
-}
-#search .main .component .search-body .search-filter .filter-date li {
-  padding: 10px 0;
-  font-size: 14px;
-  cursor: pointer;
-  color: #606266;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#search .main .component .search-body .search-filter .filter-date li:hover {
-  color: #00a0e9;
-}
-#search .main .component .search-body .search-filter .filter-date .li-active {
-  color: #00a0e9;
-}
-#search .main .component .search-body .search-filter .filter-site {
-  padding-left: 20px;
-  margin-top: 15px;
-}
-#search #footer {
-  background: #fff;
 }
 #admin {
   width: 100%;

@@ -46,14 +46,17 @@
       </div>
     </div>
     <!-- Footer -->
-    <Footer></Footer>
+    <div id="footer">
+      <div class="footer-container">
+        <p>中国美术学院版权所有 技术支持：启焕科技</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 /* 引入组件 */
 import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 /* 前台首页 */
 export default {
   name: "Home",
@@ -143,8 +146,7 @@ export default {
     }
   },
   components: {
-    Nav,
-    Footer
+    Nav
   },
   mounted: function() {
     this.$http
@@ -307,6 +309,28 @@ export default {
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+#footer {
+  width: 100%;
+  padding: 24px 0;
+  .footer-container {
+    width: 1190px;
+    margin: 0 auto;
+    &::after {
+      .clear;
+    }
+    p {
+      font-size: 14px;
+      color: @base_grey;
+      a {
+        color: @base_grey;
+        transition: all 0.3s;
+        &:hover {
+          color: @text-hover;
         }
       }
     }
