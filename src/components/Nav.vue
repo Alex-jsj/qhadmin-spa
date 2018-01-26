@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-26 00:22:37
+ * @Last Modified time: 2018-01-27 03:09:52
  */
 <template>
   <div id="nav">
@@ -39,8 +39,8 @@
             <span class="float-left" :class="{'span-active':search.source}" @click="search_switch()">站 群</span>
             <span class="float-left" :class="{'span-active':!search.source}" @click="search_switch()">学术共享平台</span>
           </div>
-          <el-input placeholder="请输入关键字" v-model="search.keyword" class="input-with-select news-search float-left" @keyup.enter.native="articleSearch()">
-            <el-button slot="append" icon="el-icon-search" @click="articleSearch()"></el-button>
+          <el-input placeholder="请输入关键字" v-model="search.keyword" class="input-with-select news-search float-left" @keyup.enter.native="propSearch()">
+            <el-button slot="append" icon="el-icon-search" @click="propSearch()"></el-button>
           </el-input>
           <el-radio-group v-model="search.option" class="float-left">
             <el-radio :label="0">全文搜索</el-radio>
@@ -90,6 +90,10 @@ export default {
     //搜索切换
     search_switch() {
       this.search.source = !this.search.source;
+    },
+    //搜索
+    propSearch: function() {
+      this.$store.commit("updateSearch", this.search);
     }
   }
 };

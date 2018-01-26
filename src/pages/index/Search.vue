@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-26 00:49:46
+ * @Last Modified time: 2018-01-27 03:16:41
  */
 
 <template>
@@ -80,6 +80,7 @@
 /* 引入模块 */
 import Nav from "@/components/Nav";
 import Paging from "@/components/Paging";
+import { mapState } from "vuex";
 /* 前台搜索页 */
 export default {
   name: "Search",
@@ -211,6 +212,11 @@ export default {
     that.search.keyword = window.localStorage.getItem("search_keyword");
     that.articleSearch();
   },
+  computed: mapState({
+    search: state => {
+      console.log(state.search);
+    }
+  }),
   methods: {
     //新闻检索
     articleSearch() {
@@ -257,10 +263,6 @@ export default {
         .catch(error => {
           console.log(error);
         });
-    },
-    //搜索切换
-    search_switch() {
-      this.search.source = !this.search.source;
     },
     //筛选时间
     filter_date(index) {
