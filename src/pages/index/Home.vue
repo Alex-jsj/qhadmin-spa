@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-29 23:13:56
+ * @Last Modified time: 2018-01-29 23:33:13
  */
 
 <template>
@@ -168,15 +168,16 @@ export default {
     newsList() {
       if (this.newsSearchValue) {
         if (this.newsSearchValue == 1) {
-          window.localStorage.setItem("news_keyword", "今日新闻");
+          
         } else if (this.newsSearchValue == 2) {
-          window.localStorage.setItem("news_keyword", "本周新闻");
+          
         } else if (this.newsSearchValue == 3) {
-          window.localStorage.setItem("news_keyword", "本月新闻");
+          
         } else if (this.newsSearchValue == 4) {
-          window.localStorage.setItem("news_keyword", "年度新闻");
+         
         }
       }
+      this.$router.push({ path: "/pages/index/Search" });
     }
   }
 };

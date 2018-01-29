@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-29 23:19:19
+ * @Last Modified time: 2018-01-29 23:36:01
  */
 
 <template>
@@ -232,6 +232,7 @@ export default {
   },
   mounted: function() {
     var that = this;
+    /* vuex刷新后会数据丢失 可能需要将搜索信息存入sessionStorage */
     that.reception_search.keyword = that.$store.state.reception_search_keyword;
     that.articleSearch();
   },
