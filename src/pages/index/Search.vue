@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-27 03:16:41
+ * @Last Modified time: 2018-01-29 23:19:19
  */
 
 <template>
@@ -58,7 +58,7 @@
               <li v-for="(item,index) in dateList" :key="item.id" @click="filter_date(index)" :class="item.class?'li-active':''">{{item.name}}</li>
             </ul>
             <p class="filter-title">按站点搜索</p>
-            <el-select v-model="search.site" placeholder="输入站点快速搜索" size="mini" class="filter-site" filterable>
+            <el-select v-model="reception_search.site" placeholder="输入站点快速搜索" size="mini" class="filter-site" filterable>
               <el-option v-for="item in siteList" :key="item.value" :label="item.label" :value="item.value"></el-option>
             </el-select>
           </div>
@@ -80,7 +80,6 @@
 /* 引入模块 */
 import Nav from "@/components/Nav";
 import Paging from "@/components/Paging";
-import { mapState } from "vuex";
 /* 前台搜索页 */
 export default {
   name: "Search",
@@ -88,7 +87,7 @@ export default {
     return {
       searchNavShow: true, //本页面需要展示在nav的元素
       //搜索选项
-      search: {
+      reception_search: {
         keyword: "",
         option: 0, //全局/标题
         source: true, //切换搜索‘站群’和‘共享平台’
@@ -202,21 +201,40 @@ export default {
       }
     };
   },
-  watch: {},
+  watch: {
+    update_reception_search_keyword(newVal, oldVal) {
+      this.reception_search.keyword = newVal;
+      this.articleSearch();
+    },
+    update_reception_search_option(newVal, oldVal) {
+      this.reception_search.option = newVal;
+      this.articleSearch();
+    },
+    update_reception_search_source(newVal, oldVal) {
+      this.reception_search.source = newVal;
+      this.articleSearch();
+    }
+  },
+  computed: {
+    update_reception_search_keyword() {
+      return this.$store.state.reception_search_keyword;
+    },
+    update_reception_search_option() {
+      return this.$store.state.reception_search_option;
+    },
+    update_reception_search_source() {
+      return this.$store.state.reception_search_source;
+    }
+  },
   components: {
     Nav,
     Paging
   },
   mounted: function() {
     var that = this;
-    that.search.keyword = window.localStorage.getItem("search_keyword");
+    that.reception_search.keyword = that.$store.state.reception_search_keyword;
     that.articleSearch();
   },
-  computed: mapState({
-    search: state => {
-      console.log(state.search);
-    }
-  }),
   methods: {
     //新闻检索
     articleSearch() {
@@ -228,11 +246,11 @@ export default {
           method: "get",
           url: "../../../static/mock/search.json",
           data: {
-            keyword: that.search.keyword,
-            option: that.search.option,
-            source: that.search.source ? "站群" : "学术共享平台",
-            date: that.search.date,
-            site: that.search.site
+            keyword: that.reception_search.keyword,
+            option: that.reception_search.option,
+            source: that.reception_search.source ? "站群" : "学术共享平台",
+            date: that.reception_search.date,
+            site: that.reception_search.site
           },
           //格式化
           transformRequest: [
@@ -255,7 +273,7 @@ export default {
         })
         .then(response => {
           endTime = new Date().getTime() / 1000;
-          that.search_res.keywords = that.search.keyword; //关键字
+          that.search_res.keywords = that.reception_search.keyword; //关键字
           that.search_res.time = parseFloat((endTime - startTime).toFixed(3)); //搜索时间
           that.search_res.count = response.data.count; //总条数
           that.search_res.result = response.data.result; //搜索结果
@@ -271,7 +289,7 @@ export default {
         that.dateList[i].class = false;
       }
       this.dateList[index].class = true;
-      this.search.date = index + 1;
+      this.reception_search.date = index + 1;
     }
   }
 };

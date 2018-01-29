@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-25 23:25:09
+ * @Last Modified time: 2018-01-29 23:13:56
  */
 
 <template>
@@ -161,7 +161,7 @@ export default {
   methods: {
     //新闻检索
     newsSearch() {
-      window.localStorage.setItem("search_keyword", "学术");
+      this.$store.commit("update_reception_search_keyword", "学术");
       this.$router.push({ path: "/pages/index/Search" });
     },
     //新闻列表

@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-27 03:09:52
+ * @Last Modified time: 2018-01-29 23:15:56
  */
 <template>
   <div id="nav">
@@ -36,13 +36,13 @@
       <div v-if="searchNavShow" class="search-nav">
         <div class="nav-search float-right">
           <div class="search-switch">
-            <span class="float-left" :class="{'span-active':search.source}" @click="search_switch()">站 群</span>
-            <span class="float-left" :class="{'span-active':!search.source}" @click="search_switch()">学术共享平台</span>
+            <span class="float-left" :class="{'span-active':reception_search.source}" @click="search_switch()">站 群</span>
+            <span class="float-left" :class="{'span-active':!reception_search.source}" @click="search_switch()">学术共享平台</span>
           </div>
-          <el-input placeholder="请输入关键字" v-model="search.keyword" class="input-with-select news-search float-left" @keyup.enter.native="propSearch()">
+          <el-input placeholder="请输入关键字" v-model="reception_search.keyword" class="input-with-select news-search float-left" @keyup.enter.native="propSearch()">
             <el-button slot="append" icon="el-icon-search" @click="propSearch()"></el-button>
           </el-input>
-          <el-radio-group v-model="search.option" class="float-left">
+          <el-radio-group v-model="reception_search.option" class="float-left">
             <el-radio :label="0">全文搜索</el-radio>
             <el-radio :label="1">标题搜索</el-radio>
           </el-radio-group>
@@ -79,21 +79,36 @@ export default {
   data() {
     return {
       //搜索选项
-      search: {
+      reception_search: {
         keyword: "",
         option: 0, //全局/标题
         source: true //切换搜索‘站群’和‘共享平台’
       }
     };
   },
+  mounted: function() {
+    var that = this;
+    that.reception_search.keyword = that.$store.state.reception_search_keyword;
+  },
   methods: {
     //搜索切换
     search_switch() {
-      this.search.source = !this.search.source;
+      this.reception_search.source = !this.reception_search.source;
     },
     //搜索
     propSearch: function() {
-      this.$store.commit("updateSearch", this.search);
+      this.$store.commit(
+        "update_reception_search_keyword",
+        this.reception_search.keyword
+      );
+      this.$store.commit(
+        "update_reception_search_option",
+        this.reception_search.option
+      );
+      this.$store.commit(
+        "update_reception_search_source",
+        this.reception_search.source
+      );
     }
   }
 };
