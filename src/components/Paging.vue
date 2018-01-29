@@ -31,7 +31,7 @@ export default {
     //获取分页数据
     this.$http({
       method: "get",
-      url: "../../static/mock/paging.json"
+      url: "./static/mock/paging.json"
     })
       .then(response => {
         var cw =

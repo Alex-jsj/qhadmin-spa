@@ -245,7 +245,7 @@ export default {
       that
         .$http({
           method: "get",
-          url: "../../../static/mock/search.json",
+          url: "./static/mock/search.json",
           data: {
             keyword: that.reception_search.keyword,
             option: that.reception_search.option,

@@ -9,11 +9,11 @@
     <div id="login" class="public-wap">
         <div class="login-header" id="canvas-box">
             <!-- 可更换背景图 -->
-            <img src="/static/img/logobg.jpg" alt="background" class="background-image">
+            <img src="../../../static/img/logobg.jpg" alt="background" class="background-image">
             <canvas id="Mycanvas" width="1920" height="350"></canvas>
             <!-- 可更换logo -->
             <div class="logo-box">
-                <img src="/static/img/logo.png" alt="logo">
+                <img src="../../../static/img/logo.png" alt="logo">
             </div>
             <div class="logo-text">
                 <span>站群管理系统V1.0</span>
