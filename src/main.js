@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-
+//
 //引入axios
 import axios from 'axios'
 Vue.prototype.$http = axios // 通过修改原型链，来更方便的使用

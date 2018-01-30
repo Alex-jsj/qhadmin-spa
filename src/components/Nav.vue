@@ -1,8 +1,8 @@
 /*
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-29 23:15:56
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-01-30 17:47:07
  */
 <template>
   <div id="nav">
@@ -64,6 +64,72 @@
           </li>
         </ul>
       </div>
+      <!-- 只在后台页面展示 -->
+      <div v-if="adminNavShow">
+        <div class="admin-index-btn float-left">
+          <router-link to="/pages/administrators/Administrators" class="underline-hover">工作台</router-link>
+        </div>
+        <ul class="notice-list float-right">
+          <li class="float-left">
+            <span class="list-title float-left">发布文章</span>
+            <span class="list-info float-left">150</span>
+          </li>
+          <li class="float-left">
+            <span class="list-title float-left">今日发布</span>
+            <span class="list-info float-left">3</span>
+          </li>
+          <li class="float-left">
+            <span class="list-title float-left">待审文章</span>
+            <span class="list-info float-left">2</span>
+          </li>
+          <li class="float-left">
+            <span class="list-title float-left">文章总数</span>
+            <span class="list-info float-left">1565</span>
+          </li>
+        </ul>
+      </div>
+      <!-- 只在系统管理员页面展示 -->
+      <div v-if="systemNavShow">
+        <div class="admin-index-btn float-left">
+          <router-link to="/pages/system_administrators/System_Administrators" class="underline-hover">工作台</router-link>
+        </div>
+        <div class="admin-index-btn xitong-left float-left">
+          <a href="javascript:void(0);" class="underline-hover">站点管理</a>
+        </div>
+        <div class="admin-index-btn xitong-left float-left">
+          <a href="javascript:void(0);" class="underline-hover">系统设置</a>
+        </div>
+        <div class="admin-index-btn float-right">
+          <a href="javascript:void(0);" class="underline-hover" @click="system_info = true">系统信息</a>
+        </div>
+        <!-- 系统信息dialog -->
+        <el-dialog title="系统信息" :visible.sync="system_info" class="system-info-pop">
+          <p>
+            <span class="system-info-title">用户名:</span>
+            <span>system</span>
+          </p>
+          <p>
+            <span class="system-info-title">所属管理组：</span>
+            <span>系统管理员</span>
+          </p>
+          <p>
+            <span class="system-info-title">数据库信息：</span>
+            <span>暂无</span>
+          </p>
+          <p>
+            <span class="system-info-title">最近登录：</span>
+            <span>2018-01-19 14:10:59</span>
+          </p>
+          <p>
+            <span class="system-info-title">服务器环境：</span>
+            <span>Apache/2.4.9 (Win64)</span>
+          </p>
+          <p>
+            <span class="system-info-title">PHP版本：</span>
+            <span>5.5.12</span>
+          </p>
+        </el-dialog>
+      </div>
     </div>
   </div>
 </template>
@@ -74,7 +140,9 @@ export default {
   props: {
     receptionNavShow: false, //前台首页展示模块
     searchNavShow: false, //前台搜索页面展示模块
-    rankNavShow: false //排行榜页面展示模块
+    rankNavShow: false, //排行榜页面展示模块
+    adminNavShow: false, //后台首页页面展示模块
+    systemNavShow: false //系统管理员页面展示模块
   },
   data() {
     return {
@@ -83,7 +151,9 @@ export default {
         keyword: "",
         option: 0, //全局/标题
         source: true //切换搜索‘站群’和‘共享平台’
-      }
+      },
+      //系统信息弹框
+      system_info: false
     };
   },
   mounted: function() {
@@ -149,7 +219,7 @@ export default {
       }
     }
     .admin-index-btn {
-      margin-top: 48px;
+      margin-top: 52px;
       margin-left: 160px;
       a {
         display: block;
@@ -296,6 +366,19 @@ export default {
         margin-left: 22px;
         line-height: 36px;
       }
+    }
+  }
+  //系统信息弹框
+  .system-info-pop {
+    .el-dialog {
+      width: 500px;
+      .el-dialog__body {
+        padding-top: 8px;
+      }
+    }
+    .system-info-title{
+      display: inline-block;
+      width: 100px;
     }
   }
 }

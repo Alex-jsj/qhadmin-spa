@@ -1,52 +1,52 @@
 /*
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-30 00:10:53
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-01-30 17:18:19
  */
 
 <template>
-    <div id="login" class="public-wap">
-        <div class="login-header" id="canvas-box">
-            <!-- 可更换背景图 -->
-            <img src="../../../static/img/logobg.jpg" alt="background" class="background-image">
-            <canvas id="Mycanvas" width="1920" height="350"></canvas>
-            <!-- 可更换logo -->
-            <div class="logo-box">
-                <img src="../../../static/img/logo.png" alt="logo">
-            </div>
-            <div class="logo-text">
-                <span>站群管理系统V1.0</span>
-            </div>
-        </div>
-        <div class="logo-index">
-            <!-- 表单 -->
-            <div class="form-container">
-                <el-form ref="form" :model="login" :rules="rules" class="form-box">
-                    <el-form-item prop="username" class="item-box">
-                        <i class="iconfont icon-user"></i>
-                        <el-input v-model="login.username" @keyup.enter.native="submitForm('form')" placeholder="用户名"></el-input>
-                    </el-form-item>
-                    <el-form-item prop="password" class="item-box r-psd">
-                        <i class="iconfont icon-password"></i>
-                        <el-input v-model="login.password" type="password" @keyup.enter.native="submitForm('form')" placeholder="密码"></el-input>
-                    </el-form-item>
-                    <el-form-item size="mini">
-                        <el-checkbox label="记住密码" name="type"></el-checkbox>
-                    </el-form-item>
-                    <el-form-item class="form-control-btn item-padding">
-                        <el-button type="primary" @click="submitForm('form')" size="large" :loading="subLoading">提交</el-button>
-                    </el-form-item>
-                </el-form>
-            </div>
-        </div>
-        <div class="login-footer">
-            <p>
-                <a href="javascript:void(0);" target="_blank">© 杭州启焕网络科技有限公司</a>
-                <span>版权所有</span>
-            </p>
-        </div>
+  <div id="login" class="public-wap">
+    <div class="login-header" id="canvas-box">
+      <!-- 可更换背景图 -->
+      <img src="../../../static/img/logobg.jpg" alt="background" class="background-image">
+      <canvas id="Mycanvas" width="1920" height="350"></canvas>
+      <!-- 可更换logo -->
+      <div class="logo-box">
+        <img src="../../../static/img/logo.png" alt="logo">
+      </div>
+      <div class="logo-text">
+        <span>站群管理系统V1.0</span>
+      </div>
     </div>
+    <div class="logo-index">
+      <!-- 表单 -->
+      <div class="form-container">
+        <el-form ref="form" :model="login" :rules="rules" class="form-box">
+          <el-form-item prop="username" class="item-box">
+            <i class="iconfont icon-user"></i>
+            <el-input v-model="login.username" @keyup.enter.native="submitForm('form')" placeholder="用户名"></el-input>
+          </el-form-item>
+          <el-form-item prop="password" class="item-box r-psd">
+            <i class="iconfont icon-password"></i>
+            <el-input v-model="login.password" type="password" @keyup.enter.native="submitForm('form')" placeholder="密码"></el-input>
+          </el-form-item>
+          <el-form-item size="mini">
+            <el-checkbox label="记住密码" name="type"></el-checkbox>
+          </el-form-item>
+          <el-form-item class="form-control-btn item-padding">
+            <el-button type="primary" @click="submitForm('form')" size="large" :loading="subLoading">提交</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
+    <div class="login-footer">
+      <p>
+        <a href="javascript:void(0);" target="_blank">© 杭州启焕网络科技有限公司</a>
+        <span>版权所有</span>
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -234,7 +234,7 @@ export default {
       var that = this;
       that.$refs[formName].validate(function(valid) {
         //跳转地址
-        var url = "administrators";
+        var url = "/pages/administrators/Administrators";
         window.localStorage.setItem("headerUrl", "administrators.html");
         window.localStorage.setItem("isEditor", false); //判断是否是编辑页面
         // 演示用账号密码
@@ -270,6 +270,7 @@ export default {
           url = "system_administrator.html"; //系统管理员
           window.localStorage.setItem("headerName", "吴晓棣(系统管理员)");
           window.localStorage.setItem("headerUrl", "system_administrator.html");
+          url = "/pages/system_administrators/System_Administrators";
         } else {
           valid = false; //登陆失败
         }
@@ -281,8 +282,8 @@ export default {
           });
           setTimeout(function() {
             //提交成功后跳转到文章列表页面
-            //this.$router.push({ path: "/pages/index/Search" });
-          }, 1000);
+            that.$router.push({ path: url });
+          }, 500);
         } else {
           that.subLoading = false;
           that.$message.error("用户名或密码错误!");
