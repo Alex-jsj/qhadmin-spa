@@ -1,8 +1,8 @@
 /*
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-29 23:36:01
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-01-31 18:21:19
  */
 
 <template>
@@ -422,6 +422,7 @@ export default {
             background: #dff2fc;
             padding-left: 20px;
             line-height: 40px;
+            font-size: 16px;
             color: @text-color;
           }
           .filter-date {

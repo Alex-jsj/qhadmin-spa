@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-30 17:18:19
+ * @Last Modified time: 2018-01-31 18:18:26
  */
 
 <template>
@@ -102,15 +102,6 @@ export default {
     };
   },
   mounted: function() {
-    var cw =
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
-    if (cw < 1921 && cw > 769) {
-      //cw = 1920;
-      document.getElementsByTagName("html")[0].style.fontSize =
-        20 * (cw / 960) + "px";
-    }
     //定义画布宽高和生成点的个数
     var WIDTH = window.innerWidth,
       HEIGHT = document.getElementById("canvas-box").offsetHeight,

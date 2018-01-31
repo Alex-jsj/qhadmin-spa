@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-30 17:47:07
+ * @Last Modified time: 2018-01-31 18:20:30
  */
 <template>
   <div id="nav">
@@ -293,7 +293,7 @@ export default {
       font-weight: 600;
     }
     .nav-list {
-      margin-top: 55px;
+      margin-top: 48px;
       li {
         margin-left: 73px;
         a {
