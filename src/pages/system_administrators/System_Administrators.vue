@@ -2,7 +2,7 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:23:03 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-31 14:34:22
+ * @Last Modified time: 2018-01-31 17:17:46
  */
 
 <template>
@@ -15,7 +15,9 @@
       <!-- SideBar -->
       <SideBar></SideBar>
       <!-- Subject -->
-      <div class="subject"></div>
+      <div class="subject float-right">
+        <router-view></router-view>
+      </div>
     </div>
     <!-- Footer -->
     <Footer :systemFooterShow="false"></Footer>
@@ -28,7 +30,7 @@ import Nav from "@/components/Nav";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SideBar from "@/components/SideBar";
-/* 后台登录页 */
+/* 后台首页 */
 export default {
   name: "System_Administrators",
   data() {
@@ -43,7 +45,9 @@ export default {
     Footer,
     SideBar
   },
-  mounted: function() {}
+  mounted: function() {
+    
+  }
 };
 </script>
 

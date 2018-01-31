@@ -2,21 +2,21 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:35:20 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-31 15:06:32
+ * @Last Modified time: 2018-01-31 17:32:57
  */
 
 <template>
-  <div id="SideBar">
+  <div id="SideBar" class="float-left">
     <ul class="side-ul">
       <li v-for="(item,index) in side_bar" :key="item.id" :class="{'li-active':item.column_open}" @click="open_column(index)">
-        <router-link :to="item.first_class_column_url">
+        <router-link :to="'/pages/system_administrators/System_Administrators/'+item.first_class_column_url">
           <i class="iconfont" :class="item.column_icon"></i>
           <span class="side-text">{{item.first_class_column_name}}</span>
           <i class="iconfont icon-down"></i>
         </router-link>
         <ol>
           <li v-for="(list,index) in item.second_class_column" :key="list.id">
-            <router-link :to="list.column_url" class="side-click">{{list.column_name}}</router-link>
+            <router-link :to="'/pages/system_administrators/System_Administrators/'+list.column_url" class="side-click">{{list.column_name}}</router-link>
           </li>
         </ol>
       </li>
@@ -32,7 +32,7 @@ export default {
       side_bar: [
         {
           first_class_column_name: "工作台",
-          first_class_column_url: "",
+          first_class_column_url: "Workbench",
           column_icon: "icon-gongzuotai",
           column_open: false,
           second_class_column: []
@@ -45,11 +45,11 @@ export default {
           second_class_column: [
             {
               column_name: "添加站点",
-              column_url: ""
+              column_url: "AddSite"
             },
             {
               column_name: "站点列表",
-              column_url: ""
+              column_url: "SiteList"
             },
             {
               column_name: "内容管理",

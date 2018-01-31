@@ -10,6 +10,8 @@ import Login from '@/pages/admin/Login'
 import Administrators from '@/pages/administrators/Administrators'
 //系统管理员后台
 import System_Administrators from '@/pages/system_administrators/System_Administrators'
+import Workbench from '@/pages/system_administrators/Workbench' //首页
+import AddSite from '@/pages/system_administrators/AddSite' //添加站点
 Vue.use(Router)
 
 export default new Router({
@@ -39,7 +41,24 @@ export default new Router({
         },
         {
             path: '/pages/system_administrators/System_Administrators',
-            component: System_Administrators
+            component: System_Administrators,
+            children: [{
+                    path: '/',
+                    component: Workbench
+                },
+                {
+                    path: 'Workbench',
+                    component: Workbench
+                },
+                {
+                    path: 'AddSite',
+                    component: AddSite
+                }
+            ]
         },
+        {
+            path: '*',
+            redirect: '/'
+        }
     ]
 })
