@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     clear_local() {
-      localStorage.clear();//退出登录清除登录信息
+      localStorage.clear(); //退出登录清除登录信息
       this.$router.push({ path: "/" });
     }
   }
@@ -65,7 +65,10 @@ export default {
     height: 36px;
     margin: 0 auto;
     &::after {
-      .clear;
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
     }
     .header-left {
       .site {

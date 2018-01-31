@@ -298,7 +298,10 @@ export default {
       border-top: 1px solid @border_color;
       padding: 50px 80px;
       &::after {
-        .clear;
+        content: "";
+        display: block;
+        visibility: hidden;
+        clear: both;
       }
     }
     .rank-box {

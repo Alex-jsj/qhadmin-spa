@@ -309,7 +309,10 @@ export default {
       margin: 0 auto;
       ul {
         &::after {
-          .clear;
+          content: "";
+          display: block;
+          visibility: hidden;
+          clear: both;
         }
         li {
           margin-right: 32px;
@@ -349,7 +352,10 @@ export default {
       }
       .search-body {
         &::after {
-          .clear;
+          content: "";
+          display: block;
+          visibility: hidden;
+          clear: both;
         }
         .search-list {
           width: 1007px;
@@ -357,7 +363,10 @@ export default {
           margin-bottom: 48px;
           border-right: 1px solid @border_color;
           &::after {
-            .clear;
+            content: "";
+            display: block;
+            visibility: hidden;
+            clear: both;
           }
           ul {
             width: 788px;
@@ -448,7 +457,10 @@ export default {
     width: 1190px;
     margin: 0 auto;
     &::after {
-      .clear;
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
     }
     p {
       font-size: 14px;

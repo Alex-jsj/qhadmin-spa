@@ -168,13 +168,9 @@ export default {
     newsList() {
       if (this.newsSearchValue) {
         if (this.newsSearchValue == 1) {
-          
         } else if (this.newsSearchValue == 2) {
-          
         } else if (this.newsSearchValue == 3) {
-          
         } else if (this.newsSearchValue == 4) {
-         
         }
       }
       this.$router.push({ path: "/pages/index/Search" });
@@ -256,7 +252,10 @@ export default {
             padding-top: 20px;
             margin-bottom: 30px;
             &::after {
-              .clear;
+              content: "";
+              display: block;
+              visibility: hidden;
+              clear: both;
             }
             li {
               margin-right: 20px;
@@ -322,7 +321,10 @@ export default {
     width: 1190px;
     margin: 0 auto;
     &::after {
-      .clear;
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
     }
     p {
       font-size: 14px;

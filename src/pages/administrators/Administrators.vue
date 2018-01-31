@@ -156,9 +156,12 @@ export default {
     position: absolute;
     top: 55%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     &::after {
-      .clear;
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
     }
     .entry-box {
       width: 290px;
@@ -215,7 +218,10 @@ export default {
     .editor-list {
       width: 600px;
       &::after {
-        .clear;
+        content: "";
+        display: block;
+        visibility: hidden;
+        clear: both;
       }
     }
     .editor-article {
@@ -223,7 +229,10 @@ export default {
       height: 330px;
       overflow: hidden;
       &::after {
-        .clear;
+        content: "";
+        display: block;
+        visibility: hidden;
+        clear: both;
       }
       width: 590px;
       margin-right: 10px;

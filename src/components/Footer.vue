@@ -118,7 +118,10 @@ export default {
     width: 1190px;
     margin: 0 auto;
     &::after {
-      .clear;
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
     }
     p {
       font-size: 14px;
@@ -167,7 +170,10 @@ export default {
         width: 100%;
         margin-top: 30px;
         &::after {
-          .clear;
+          content: "";
+          display: block;
+          visibility: hidden;
+          clear: both;
         }
         li {
           width: 25%;

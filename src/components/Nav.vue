@@ -196,7 +196,10 @@ export default {
     margin: 0 auto;
     position: relative;
     &::after {
-      .clear;
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
     }
     .nav-logo {
       .logo-rotate {
@@ -242,7 +245,10 @@ export default {
     .notice-list {
       margin-top: 48px;
       &::after {
-        .clear;
+        content: "";
+        display: block;
+        visibility: hidden;
+        clear: both;
       }
       li {
         margin-left: 40px;
@@ -252,7 +258,10 @@ export default {
           }
         }
         &::after {
-          .clear;
+          content: "";
+          display: block;
+          visibility: hidden;
+          clear: both;
         }
         &:first-of-type {
           margin-left: 0;
@@ -311,7 +320,10 @@ export default {
         top: 1px;
         z-index: 10;
         &::after {
-          .clear;
+          content: "";
+          display: block;
+          visibility: hidden;
+          clear: both;
         }
         span {
           display: block;
@@ -376,7 +388,7 @@ export default {
         padding-top: 8px;
       }
     }
-    .system-info-title{
+    .system-info-title {
       display: inline-block;
       width: 100px;
     }
