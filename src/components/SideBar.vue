@@ -21,7 +21,7 @@
           <i class="iconfont icon-down"></i>
         </a>
         <ol>
-          <li v-for="(list,index) in item.second_class_column" :key="list.id">
+          <li v-for="(list,index) in item.second_class_column" :key="list.id" :class="{'side-click-active':list.column_active}" @click="active_column(index,item)">
             <router-link :to="'/pages/system_administrators/System_Administrators/'+list.column_url" class="side-click">{{list.column_name}}</router-link>
           </li>
         </ol>
@@ -53,19 +53,23 @@ export default {
           second_class_column: [
             {
               column_name: "添加站点",
-              column_url: "AddSite"
+              column_url: "AddSite",
+              column_active: false
             },
             {
               column_name: "站点列表",
-              column_url: "SiteList"
+              column_url: "SiteList",
+              column_active: false
             },
             {
               column_name: "内容管理",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "数据备份",
-              column_url: ""
+              column_url: "",
+              column_active: false
             }
           ]
         },
@@ -78,11 +82,13 @@ export default {
           second_class_column: [
             {
               column_name: "添加附件",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "附件列表",
-              column_url: ""
+              column_url: "",
+              column_active: false
             }
           ]
         },
@@ -95,11 +101,13 @@ export default {
           second_class_column: [
             {
               column_name: "添加组件",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "组件列表",
-              column_url: ""
+              column_url: "",
+              column_active: false
             }
           ]
         },
@@ -112,11 +120,13 @@ export default {
           second_class_column: [
             {
               column_name: "添加模板",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "模板列表",
-              column_url: ""
+              column_url: "",
+              column_active: false
             }
           ]
         },
@@ -129,19 +139,23 @@ export default {
           second_class_column: [
             {
               column_name: "添加用户",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "用户管理",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "添加用户组",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "用户组管理",
-              column_url: ""
+              column_url: "",
+              column_active: false
             }
           ]
         },
@@ -154,15 +168,18 @@ export default {
           second_class_column: [
             {
               column_name: "部门管理",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "全局设置",
-              column_url: ""
+              column_url: "",
+              column_active: false
             },
             {
               column_name: "系统日志",
-              column_url: ""
+              column_url: "",
+              column_active: false
             }
           ]
         }
@@ -177,6 +194,16 @@ export default {
         obj.column_open = false;
       }
       this.side_bar[index].column_open = !this.side_bar[index].column_open; //展开栏目
+    },
+    active_column: function(index, item) {
+      for (let obj of this.side_bar) {
+        for (let chi of obj.second_class_column) {
+          chi.column_active = false;
+        }
+      }
+      item.second_class_column[index].column_active = !item.second_class_column[
+        index
+      ].column_active; //展开栏目
     }
   }
 };
@@ -268,7 +295,7 @@ export default {
             }
           }
         }
-        .side-active {
+        .side-click-active {
           a {
             color: @base-color2;
           }

@@ -190,3 +190,10 @@
         background: #fff;
         border-radius: 3px;
     }
+
+    .public-container {
+        width: 990px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 3px;
+    }
