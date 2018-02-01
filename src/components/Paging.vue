@@ -2,12 +2,14 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-01-26 00:47:51
+ * @Last Modified time: 2018-02-02 00:38:00
  */
 <template>
   <div id="paging">
-    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPaging.currentPage" :page-sizes="currentPaging.pageSizes" :page-size="currentPaging.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="currentPaging.totals">
-    </el-pagination>
+    <center>
+      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPaging.currentPage" :page-sizes="currentPaging.pageSizes" :page-size="currentPaging.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="currentPaging.totals">
+      </el-pagination>
+    </center>
   </div>
 </template>
 

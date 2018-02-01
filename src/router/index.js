@@ -12,6 +12,7 @@ import Administrators from '@/pages/administrators/Administrators'
 import System_Administrators from '@/pages/system_administrators/System_Administrators'
 import Workbench from '@/pages/system_administrators/Workbench' //首页
 import AddSite from '@/pages/system_administrators/AddSite' //添加站点
+import SiteList from '@/pages/system_administrators/SiteList' //站点列表
 Vue.use(Router)
 
 export default new Router({
@@ -53,7 +54,11 @@ export default new Router({
                 {
                     path: 'AddSite',
                     component: AddSite
-                }
+                },
+                {
+                    path: 'SiteList',
+                    component: SiteList
+                },
             ]
         },
         {

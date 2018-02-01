@@ -2,7 +2,7 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-02 00:15:49
+ * @Last Modified time: 2018-02-02 00:30:04
  */
 
 
@@ -372,5 +372,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-@import "../../assets/css/less_config.less";
+
 </style>

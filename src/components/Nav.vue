@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-01 22:54:53
+ * @Last Modified time: 2018-02-02 01:02:57
  */
 <template>
   <div id="nav">
@@ -94,7 +94,7 @@
           <router-link to="/pages/system_administrators/System_Administrators" class="underline-hover">工作台</router-link>
         </div>
         <div class="admin-index-btn xitong-left float-left">
-          <a href="javascript:void(0);" class="underline-hover">站点管理</a>
+          <router-link to="/pages/system_administrators/System_Administrators/SiteList" class="underline-hover">站点管理</router-link>
         </div>
         <div class="admin-index-btn xitong-left float-left">
           <a href="javascript:void(0);" class="underline-hover">系统设置</a>

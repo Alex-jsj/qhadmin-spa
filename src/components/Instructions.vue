@@ -2,7 +2,7 @@
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-02-01 23:36:04 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-02 00:21:31
+ * @Last Modified time: 2018-02-02 00:25:55
  */
 
 <template>
@@ -11,7 +11,7 @@
       <i class="el-icon-question float-left"></i>
       <span class="float-right">使用说明</span>
     </p>
-    <el-dialog title="使用说明" :visible.sync="dialogVisible" width="50%">
+    <el-dialog title="使用说明" :visible.sync="dialogVisible" width="50%" class="ins-dialog">
       <div v-for="item in instructionsInfo" :key="item.id">
         <p>{{item.title}}</p>
         <p>{{item.content}}</p>
