@@ -2,7 +2,7 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:35:20 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-01 22:39:30
+ * @Last Modified time: 2018-02-01 23:01:04
  */
 
 <template>
@@ -283,7 +283,6 @@ export default {
         }
         .side-text {
           margin-left: 10px;
-          top: 1px;
         }
       }
       > ol {

@@ -1,8 +1,8 @@
 /*
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:23:03 
- * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-31 17:17:46
+ * @Last Modified by: alex (chenzeyongjsj@163.com)
+ * @Last Modified time: 2018-02-01 23:21:22
  */
 
 <template>
@@ -15,7 +15,7 @@
       <!-- SideBar -->
       <SideBar></SideBar>
       <!-- Subject -->
-      <div class="subject float-right">
+      <div class="subject public-container float-right">
         <router-view></router-view>
       </div>
     </div>

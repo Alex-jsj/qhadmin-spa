@@ -15,18 +15,18 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 
 //引入外部资源
-import base_css from './assets/css/base.css'
+import public_css from './assets/css/public.css'
 import icon_css from './assets/iconfont/iconfont.css' //阿里巴巴图标库
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  components: {
-    App
-  },
-  template: '<App/>'
+    el: '#app',
+    router,
+    store,
+    components: {
+        App
+    },
+    template: '<App/>'
 })

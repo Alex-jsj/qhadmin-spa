@@ -2,12 +2,12 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
  * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-01 22:31:43
+ * @Last Modified time: 2018-02-01 23:34:07
  */
 
 
 <template>
-  <div id="Workbench" class="public-container">
+  <div id="Workbench">
     <Crumb :crumbs="crumbs"></Crumb>
     <!-- 快捷导航 -->
     <div class="quick-navigation">

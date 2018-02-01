@@ -1,8 +1,8 @@
 /*
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
- * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-31 18:20:30
+ * @Last Modified by: alex (chenzeyongjsj@163.com)
+ * @Last Modified time: 2018-02-01 22:54:53
  */
 <template>
   <div id="nav">
@@ -304,9 +304,6 @@ export default {
           &:hover {
             color: @text-hover;
           }
-        }
-        .underline-hover:before {
-          bottom: -3px;
         }
       }
     }
