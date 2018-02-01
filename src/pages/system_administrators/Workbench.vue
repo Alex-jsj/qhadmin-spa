@@ -1,8 +1,8 @@
 /*
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
- * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-31 15:51:34
+ * @Last Modified by: alex (chenzeyongjsj@163.com)
+ * @Last Modified time: 2018-02-01 22:31:43
  */
 
 
@@ -200,7 +200,11 @@ export default {
     DataChart,
     Crumb
   },
-  mounted: function() {},
+  mounted: function() {
+    //侧边导航定位
+    sessionStorage.setItem("system_menu_idx", 0);
+    this.$store.commit("update_system_menu_idx", 0);
+  },
   methods: {
     //切换
     data_switch: function(event, index) {

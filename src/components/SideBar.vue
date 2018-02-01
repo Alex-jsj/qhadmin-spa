@@ -1,28 +1,22 @@
 /*
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:35:20 
- * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-01-31 17:40:06
+ * @Last Modified by: alex (chenzeyongjsj@163.com)
+ * @Last Modified time: 2018-02-01 22:39:30
  */
 
 <template>
   <div id="SideBar" class="float-left">
     <ul class="side-ul">
-      <li v-for="(item,index) in side_bar" :key="item.id" :class="{'li-active':item.column_open}" @click="open_column(index)">
-        <!-- 如果没有二级菜单 则不使用router-link 防止空链接跳转 -->
-        <router-link :to="'/pages/system_administrators/System_Administrators/'+item.first_class_column_url" v-if="item.no_second">
+      <li v-for="(item,index) in side_bar" :key="item.id" :class="{'li-active':item.column_open}">
+        <div class="menu-link-container" @click="open_column(index)">
           <i class="iconfont float-left" :class="item.column_icon"></i>
           <span class="side-text float-left">{{item.first_class_column_name}}</span>
           <i class="iconfont icon-down"></i>
-        </router-link>
-        <a href="javascript:void(0);" v-else>
-          <i class="iconfont float-left" :class="item.column_icon"></i>
-          <span class="side-text float-left">{{item.first_class_column_name}}</span>
-          <i class="iconfont icon-down"></i>
-        </a>
+        </div>
         <ol>
-          <li v-for="(list,index) in item.second_class_column" :key="list.id" :class="{'side-click-active':list.column_active}" @click="active_column(index,item)">
-            <router-link :to="'/pages/system_administrators/System_Administrators/'+list.column_url" class="side-click">{{list.column_name}}</router-link>
+          <li v-for="(list,index) in item.second_class_column" :key="list.id">
+            <router-link :to="'/pages/system_administrators/System_Administrators/'+list.column_url" class="side-click" active-class="menu-active">{{list.column_name}}</router-link>
           </li>
         </ol>
       </li>
@@ -40,7 +34,7 @@ export default {
           first_class_column_name: "工作台",
           first_class_column_url: "Workbench",
           column_icon: "icon-gongzuotai",
-          column_open: true,
+          column_open: false,
           no_second: true,
           second_class_column: []
         },
@@ -183,27 +177,43 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      menu_idx: 0 //导航定位
     };
   },
-  watch: {},
-  mounted: function() {},
+  watch: {
+    update_system_menu_idx(newVal, oldVal) {
+      for (let obj of this.side_bar) {
+        obj.column_open = false;
+      }
+      this.side_bar[newVal].column_open = true; //定位导航
+    }
+  },
+  computed: {
+    update_system_menu_idx() {
+      return this.$store.state.system_menu_idx;
+    }
+  },
+  mounted: function() {
+    //定位导航
+    if (sessionStorage.getItem("system_menu_idx")) {
+      this.menu_idx = sessionStorage.getItem("system_menu_idx");
+      this.side_bar[this.menu_idx].column_open = true;
+    }
+  },
   methods: {
     open_column: function(index) {
       for (let obj of this.side_bar) {
         obj.column_open = false;
       }
-      this.side_bar[index].column_open = !this.side_bar[index].column_open; //展开栏目
-    },
-    active_column: function(index, item) {
-      for (let obj of this.side_bar) {
-        for (let chi of obj.second_class_column) {
-          chi.column_active = false;
-        }
+      if (index == 0) {
+        this.$router.push({
+          path: "/pages/system_administrators/System_Administrators/Workbench"
+        });
       }
-      item.second_class_column[index].column_active = !item.second_class_column[
-        index
-      ].column_active; //展开栏目
+      this.side_bar[index].column_open = !this.side_bar[index].column_open; //展开栏目
+      sessionStorage.setItem("system_menu_idx", index); //将导航idx存入sessionStorage数据库
+      this.$store.commit("update_system_menu_idx", index); //更新vuex
     }
   }
 };
@@ -228,14 +238,14 @@ export default {
         }
       }
       &:hover {
-        > a {
+        .menu-link-container {
           background: #dff2fc;
           &::before {
             left: 0;
           }
         }
       }
-      > a {
+      .menu-link-container {
         display: block;
         width: 100%;
         height: 40px;
@@ -243,6 +253,7 @@ export default {
         position: relative;
         background: #fff;
         transition: all 0.3s;
+        cursor: pointer;
         &::before {
           content: "";
           position: absolute;
@@ -295,15 +306,13 @@ export default {
             }
           }
         }
-        .side-click-active {
-          a {
-            color: @base-color2;
-          }
+        .router-link-exact-active.menu-active {
+          color: @base-color2;
         }
       }
     }
     .li-active {
-      > a {
+      .menu-link-container {
         background: #dff2fc;
         &::before {
           left: 0;
