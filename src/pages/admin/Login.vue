@@ -102,6 +102,14 @@ export default {
     };
   },
   mounted: function() {
+    //已登录
+    if (localStorage.getItem("headerUrl") == "Administrators") {
+      this.$router.push({ path: "/pages/administrators/Administrators" });
+    } else if (localStorage.getItem("headerUrl") == "System_Administrators") {
+      this.$router.push({
+        path: "/pages/system_administrators/System_Administrators"
+      });
+    }
     //定义画布宽高和生成点的个数
     var WIDTH = window.innerWidth,
       HEIGHT = document.getElementById("canvas-box").offsetHeight,
@@ -226,7 +234,7 @@ export default {
       that.$refs[formName].validate(function(valid) {
         //跳转地址
         var url = "/pages/administrators/Administrators";
-        window.localStorage.setItem("headerUrl", "administrators.html");
+        window.localStorage.setItem("headerUrl", "Administrators");
         window.localStorage.setItem("isEditor", false); //判断是否是编辑页面
         // 演示用账号密码
         if (
@@ -258,9 +266,9 @@ export default {
           that.login.username == "admin5" &&
           that.login.password == "admin5"
         ) {
-          url = "system_administrator.html"; //系统管理员
+          //系统管理员
           window.localStorage.setItem("headerName", "吴晓棣(系统管理员)");
-          window.localStorage.setItem("headerUrl", "system_administrator.html");
+          window.localStorage.setItem("headerUrl", "System_Administrators");
           url = "/pages/system_administrators/System_Administrators";
         } else {
           valid = false; //登陆失败

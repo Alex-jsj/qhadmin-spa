@@ -45,13 +45,18 @@ export default {
     Footer,
     SideBar
   },
-  mounted: function() {
-    
-  }
+  mounted: function() {}
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
 @import "../../assets/css/less_config.less";
+#system_admin {
+  width: 100%;
+  .main {
+    background: transparent;
+    padding: 0;
+  }
+}
 </style>

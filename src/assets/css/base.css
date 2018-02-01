@@ -94,22 +94,22 @@
     }
     /* 滚动条样式 */
 
-    ::-webkit-scrollbar {
+     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
 
-    ::-webkit-scrollbar-track {
+     ::-webkit-scrollbar-track {
         border-radius: 10px;
         background: #fff;
     }
 
-    ::-webkit-scrollbar-thumb {
+     ::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background: #aaa;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
+     ::-webkit-scrollbar-thumb:hover {
         background: #888;
     }
 
@@ -183,14 +183,10 @@
     .public-wap .main {
         width: 1190px;
         margin: 0 auto;
-        overflow: hidden;
         margin-top: 40px;
-        position: relative;
-    }
-
-    .public-wap .component {
-        width: 100%;
         overflow: hidden;
-        margin-top: 20px;
+        padding: 20px;
         position: relative;
+        background: #fff;
+        border-radius: 3px;
     }

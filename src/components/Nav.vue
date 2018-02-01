@@ -60,7 +60,7 @@
             <router-link to="/" class="underline-hover">学院官网</router-link>
           </li>
           <li class="float-left">
-            <router-link to="/pages/admin/Login" class="underline-hover" target="_blank">后台登录</router-link>
+            <router-link to="/pages/admin/Login" class="underline-hover">后台登录</router-link>
           </li>
         </ul>
       </div>
@@ -293,13 +293,14 @@ export default {
       font-weight: 600;
     }
     .nav-list {
-      margin-top: 48px;
+      margin-top: 55px;
       li {
         margin-left: 73px;
         a {
           font-size: 14px;
           color: @text-color;
           transition: all 0.3s;
+          display: block;
           &:hover {
             color: @text-hover;
           }

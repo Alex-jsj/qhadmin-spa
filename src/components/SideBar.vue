@@ -9,11 +9,17 @@
   <div id="SideBar" class="float-left">
     <ul class="side-ul">
       <li v-for="(item,index) in side_bar" :key="item.id" :class="{'li-active':item.column_open}" @click="open_column(index)">
-        <router-link :to="'/pages/system_administrators/System_Administrators/'+item.first_class_column_url">
-          <i class="iconfont" :class="item.column_icon"></i>
-          <span class="side-text">{{item.first_class_column_name}}</span>
+        <!-- 如果没有二级菜单 则不使用router-link 防止空链接跳转 -->
+        <router-link :to="'/pages/system_administrators/System_Administrators/'+item.first_class_column_url" v-if="item.no_second">
+          <i class="iconfont float-left" :class="item.column_icon"></i>
+          <span class="side-text float-left">{{item.first_class_column_name}}</span>
           <i class="iconfont icon-down"></i>
         </router-link>
+        <a href="javascript:void(0);" v-else>
+          <i class="iconfont float-left" :class="item.column_icon"></i>
+          <span class="side-text float-left">{{item.first_class_column_name}}</span>
+          <i class="iconfont icon-down"></i>
+        </a>
         <ol>
           <li v-for="(list,index) in item.second_class_column" :key="list.id">
             <router-link :to="'/pages/system_administrators/System_Administrators/'+list.column_url" class="side-click">{{list.column_name}}</router-link>
@@ -34,7 +40,8 @@ export default {
           first_class_column_name: "工作台",
           first_class_column_url: "Workbench",
           column_icon: "icon-gongzuotai",
-          column_open: false,
+          column_open: true,
+          no_second: true,
           second_class_column: []
         },
         {
@@ -42,6 +49,7 @@ export default {
           first_class_column_url: "",
           column_icon: "icon-zhandianguanli",
           column_open: false,
+          no_second: false,
           second_class_column: [
             {
               column_name: "添加站点",
@@ -66,6 +74,7 @@ export default {
           first_class_column_url: "",
           column_icon: "icon-fujianguanli",
           column_open: false,
+          no_second: false,
           second_class_column: [
             {
               column_name: "添加附件",
@@ -82,6 +91,7 @@ export default {
           first_class_column_url: "",
           column_icon: "icon-zujianguanli",
           column_open: false,
+          no_second: false,
           second_class_column: [
             {
               column_name: "添加组件",
@@ -98,6 +108,7 @@ export default {
           first_class_column_url: "",
           column_icon: "icon-wangzhanmoban",
           column_open: false,
+          no_second: false,
           second_class_column: [
             {
               column_name: "添加模板",
@@ -114,6 +125,7 @@ export default {
           first_class_column_url: "",
           column_icon: "icon-quanxianguanli",
           column_open: false,
+          no_second: false,
           second_class_column: [
             {
               column_name: "添加用户",
@@ -138,6 +150,7 @@ export default {
           first_class_column_url: "",
           column_icon: "icon-xitongshezhi",
           column_open: false,
+          no_second: false,
           second_class_column: [
             {
               column_name: "部门管理",
@@ -231,7 +244,8 @@ export default {
           transition: all 0.3s;
         }
         .side-text {
-          margin-left: 5px;
+          margin-left: 10px;
+          top: 1px;
         }
       }
       > ol {

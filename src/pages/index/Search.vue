@@ -20,7 +20,7 @@
             <a href="javascript:void(0);" target="_blank" class="underline-hover">学院官网</a>
           </li>
           <li class="float-left">
-            <router-link to="../admin/Login" target="_blank" class="underline-hover">后台登录</router-link>
+            <router-link to="../admin/Login" class="underline-hover">后台登录</router-link>
           </li>
         </ul>
       </div>
@@ -322,6 +322,7 @@ export default {
             color: #fff;
             position: relative;
             transition: all 0.3s;
+            display: block;
             &:hover {
               color: @text-hover;
             }
@@ -336,8 +337,9 @@ export default {
   .main {
     width: 100%;
     margin-top: 0;
+    padding: 0;
     padding-bottom: 20px;
-    background: #fff;
+    border-radius: 0;
     .component {
       width: 1190px;
       margin: 0 auto;

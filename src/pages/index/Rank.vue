@@ -11,56 +11,54 @@
     <Nav :rankNavShow="true"></Nav>
     <!-- main -->
     <div class="main">
-      <div class="component">
-        <!-- crumb -->
-        <Crumb :crumbs="crumbs"></Crumb>
-        <!-- 数据刷新 -->
-        <div class="refresh">
-          <span>备注：数据统计时间有延迟，每天更新一次。</span>
-          <el-button type="primary" size="mini">数据刷新</el-button>
+      <!-- crumb -->
+      <Crumb :crumbs="crumbs"></Crumb>
+      <!-- 数据刷新 -->
+      <div class="refresh">
+        <span class="float-left">备注：数据统计时间有延迟，每天更新一次。</span>
+        <el-button type="primary" size="mini" class="float-right">数据刷新</el-button>
+      </div>
+      <!-- 排行榜 -->
+      <div class="rank-container">
+        <!-- 文章排行榜 -->
+        <div class="article-rank rank-box float-left">
+          <p class="rank-title">
+            <i class="iconfont icon-wenzhangliebiao"></i>
+            <span>文章排行榜</span>
+          </p>
+          <el-table :data="article_rank" stripe>
+            <el-table-column label="排行" width="120" class-name="solt-title">
+              <div slot-scope="scope">
+                <i class="iconfont icon-paihang"></i>
+                <span class="rank-solt">{{scope.row.rank}}</span>
+              </div>
+            </el-table-column>
+            <el-table-column prop="info" label="网站名称">
+              <div slot-scope="scope">
+                <a :href="scope.row.info.url" target="_blank" class="rank-link">{{scope.row.info.uid}} - {{scope.row.info.title}}</a>
+              </div>
+            </el-table-column>
+          </el-table>
         </div>
-        <!-- 排行榜 -->
-        <div class="rank-container">
-          <!-- 文章排行榜 -->
-          <div class="article-rank rank-box float-left">
-            <p class="rank-title">
-              <i class="iconfont icon-wenzhangliebiao"></i>
-              <span>文章排行榜</span>
-            </p>
-            <el-table :data="article_rank" stripe>
-              <el-table-column label="排行" width="120" class-name="solt-title">
-                <div slot-scope="scope">
-                  <i class="iconfont icon-paihang"></i>
-                  <span class="rank-solt">{{scope.row.rank}}</span>
-                </div>
-              </el-table-column>
-              <el-table-column prop="info" label="网站名称">
-                <div slot-scope="scope">
-                  <a :href="scope.row.info.url" target="_blank" class="rank-link">{{scope.row.info.uid}} - {{scope.row.info.title}}</a>
-                </div>
-              </el-table-column>
-            </el-table>
-          </div>
-          <!-- 访问量排行榜 -->
-          <div class="visit-rank rank-box float-right">
-            <p class="rank-title">
-              <i class="iconfont icon-zhandianfangwenliangtongji"></i>
-              <span>访问量排行榜</span>
-            </p>
-            <el-table :data="visit_rank" stripe>
-              <el-table-column label="排行" width="120" class-name="solt-title">
-                <div slot-scope="scope">
-                  <i class="iconfont icon-paihang"></i>
-                  <span class="rank-solt">{{scope.row.rank}}</span>
-                </div>
-              </el-table-column>
-              <el-table-column prop="info" label="网站名称">
-                <div slot-scope="scope">
-                  <a :href="scope.row.info.url" target="_blank" class="rank-link">{{scope.row.info.uid}} - {{scope.row.info.title}}</a>
-                </div>
-              </el-table-column>
-            </el-table>
-          </div>
+        <!-- 访问量排行榜 -->
+        <div class="visit-rank rank-box float-right">
+          <p class="rank-title">
+            <i class="iconfont icon-zhandianfangwenliangtongji"></i>
+            <span>访问量排行榜</span>
+          </p>
+          <el-table :data="visit_rank" stripe>
+            <el-table-column label="排行" width="120" class-name="solt-title">
+              <div slot-scope="scope">
+                <i class="iconfont icon-paihang"></i>
+                <span class="rank-solt">{{scope.row.rank}}</span>
+              </div>
+            </el-table-column>
+            <el-table-column prop="info" label="网站名称">
+              <div slot-scope="scope">
+                <a :href="scope.row.info.url" target="_blank" class="rank-link">{{scope.row.info.uid}} - {{scope.row.info.title}}</a>
+              </div>
+            </el-table-column>
+          </el-table>
         </div>
       </div>
     </div>
@@ -273,109 +271,99 @@ export default {
 <style lang="less">
 @import "../../assets/css/less_config.less";
 .main {
-  .component {
-    background: #fff;
+  .refresh {
+    height: 28px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: @base_grey;
+    > span {
+      font-size: 14px;
+      line-height: 28px;
+    }
+  }
+  .rank-container {
+    width: 100%;
+    border-top: 1px solid @border_color;
+    padding: 50px 80px;
+    &::after {
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
+    }
+  }
+  .rank-box {
+    width: 446px;
+    overflow: hidden;
     border-radius: 3px;
-    padding: 20px;
-    position: relative;
-    .refresh {
-      height: 28px;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: @base_grey;
-      > span {
-        font-size: 14px;
-        line-height: 28px;
-      }
-      .el-button {
-        position: relative;
-        top: -2px;
-      }
-    }
-    .rank-container {
+    .rank-title {
+      text-align: center;
       width: 100%;
-      border-top: 1px solid @border_color;
-      padding: 50px 80px;
-      &::after {
-        content: "";
-        display: block;
-        visibility: hidden;
-        clear: both;
+      line-height: 80px;
+      background: @base-color2;
+      color: #fff;
+      font-size: 18px;
+      .iconfont {
+        font-size: 28px;
+        position: relative;
+        top: 3px;
       }
     }
-    .rank-box {
-      width: 446px;
-      overflow: hidden;
-      border-radius: 3px;
-      .rank-title {
-        text-align: center;
-        width: 100%;
-        line-height: 80px;
-        background: @base-color2;
-        color: #fff;
-        font-size: 18px;
-        .iconfont {
-          font-size: 28px;
-          position: relative;
-          top: 3px;
-        }
-      }
-      .icon-paihang {
-        font-size: 24px;
+    .icon-paihang {
+      font-size: 24px;
+      color: @base-color2;
+      position: relative;
+      top: 1px;
+      opacity: 0;
+    }
+    .rank-solt {
+      font-size: 20px;
+      color: @base_grey;
+    }
+    .rank-link {
+      color: @text-color;
+      &:hover {
         color: @base-color2;
-        position: relative;
-        top: 1px;
-        opacity: 0;
+      }
+    }
+    .el-table tr:nth-child(1) {
+      .icon-paihang {
+        color: @base-color2;
+        opacity: 1;
       }
       .rank-solt {
-        font-size: 20px;
-        color: @base_grey;
+        font-weight: 600;
+        color: @base-color2;
       }
-      .rank-link {
-        color: @text-color;
-        &:hover {
-          color: @base-color2;
-        }
+    }
+    .el-table tr:nth-child(2) {
+      .icon-paihang {
+        color: #00b4ed;
+        opacity: 1;
       }
-      .el-table tr:nth-child(1) {
-        .icon-paihang {
-          color: @base-color2;
-          opacity: 1;
-        }
-        .rank-solt {
-          font-weight: 600;
-          color: @base-color2;
-        }
+      .rank-solt {
+        font-weight: 600;
+        color: #00b4ed;
       }
-      .el-table tr:nth-child(2) {
-        .icon-paihang {
-          color: #00b4ed;
-          opacity: 1;
-        }
-        .rank-solt {
-          font-weight: 600;
-          color: #00b4ed;
-        }
+    }
+    .el-table tr:nth-child(3) {
+      .icon-paihang {
+        color: #7dcdf4;
+        opacity: 1;
       }
-      .el-table tr:nth-child(3) {
-        .icon-paihang {
-          color: #7dcdf4;
-          opacity: 1;
-        }
-        .rank-solt {
-          font-weight: 600;
-          color: #7dcdf4;
-        }
+      .rank-solt {
+        font-weight: 600;
+        color: #7dcdf4;
       }
-      .el-table tr:last-of-type {
-        .rank-solt {
-          margin-left: -6px;
-        }
+    }
+    .el-table tr:last-of-type {
+      .rank-solt {
+        margin-left: -6px;
       }
-      .solt-title.is-leaf {
-        padding-left: 8px;
-      }
+    }
+    .solt-title.is-leaf {
+      padding-left: 8px;
     }
   }
 }

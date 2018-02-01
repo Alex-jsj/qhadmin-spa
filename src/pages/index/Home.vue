@@ -11,38 +11,36 @@
     <Nav :receptionNavShow="true"></Nav>
     <!-- main -->
     <div class="main">
-      <div class="component">
-        <div class="filter-container">
-          <span class="filter-title float-left">全站检索</span>
-          <el-input placeholder="请输入关键字" v-model="searchValue" class="input-with-select title-search float-left" size="mini" @keyup.enter.native="newsSearch()">
-            <el-button slot="append" icon="el-icon-search" @click="newsSearch()"></el-button>
-          </el-input>
-          <span class="filter-title float-left">新闻查询</span>
-          <el-select v-model="newsSearchValue" clearable size="mini" class="float-left" @change="newsList">
-            <el-option v-for="item in newsSearchList" :key="item.value" :label="item.label" :value="item.value"></el-option>
-          </el-select>
-          <div class="float-right">
-            <span class="filter-title float-left">更新时间:</span>
-            <span class="filter-title float-left">{{now_date|formatTime('YMDHM')}}</span>
-          </div>
+      <div class="filter-container">
+        <span class="filter-title float-left">全站检索</span>
+        <el-input placeholder="请输入关键字" v-model="searchValue" class="input-with-select title-search float-left" size="mini" @keyup.enter.native="newsSearch()">
+          <el-button slot="append" icon="el-icon-search" @click="newsSearch()"></el-button>
+        </el-input>
+        <span class="filter-title float-left">新闻查询</span>
+        <el-select v-model="newsSearchValue" clearable size="mini" class="float-left" @change="newsList">
+          <el-option v-for="item in newsSearchList" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        </el-select>
+        <div class="float-right">
+          <span class="filter-title float-left">更新时间:</span>
+          <span class="filter-title float-left">{{now_date|formatTime('YMDHM')}}</span>
         </div>
-        <div class="school-list">
-          <ul class="list-ul">
-            <li v-for="(list,index) in schoolList" :key="list.id" :class="index%2==0?loop_a:loop_b">
-              <p class="ul-li-title">{{list.department}}</p>
-              <ol class="list-ol">
-                <li v-for="item in list.departmentList" :key="item.id" class="float-left">
-                  <a :href="item.schoolUrl" target="_blank">
-                    <div class="text-container">
-                      <span class="school-id">{{item.schoolId}}</span>
-                      <p class="school-name">{{item.schoolName}}</p>
-                    </div>
-                  </a>
-                </li>
-              </ol>
-            </li>
-          </ul>
-        </div>
+      </div>
+      <div class="school-list">
+        <ul class="list-ul">
+          <li v-for="(list,index) in schoolList" :key="list.id" :class="index%2==0?loop_a:loop_b">
+            <p class="ul-li-title">{{list.department}}</p>
+            <ol class="list-ol">
+              <li v-for="item in list.departmentList" :key="item.id" class="float-left">
+                <a :href="item.schoolUrl" target="_blank">
+                  <div class="text-container">
+                    <span class="school-id">{{item.schoolId}}</span>
+                    <p class="school-name">{{item.schoolName}}</p>
+                  </div>
+                </a>
+              </li>
+            </ol>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- Footer -->
@@ -185,127 +183,122 @@ export default {
   width: 100%;
   position: relative;
   .main {
-    .component {
-      background: #fff;
-      border-radius: 3px;
-      padding: 20px;
-      .filter-container {
-        width: 100%;
-        height: 28px;
-        .title-search {
-          width: 200px;
-          margin-right: 33px;
-          .el-input-group__append {
-            padding: 0 10px;
-            overflow: hidden;
+    .filter-container {
+      width: 100%;
+      height: 28px;
+      .title-search {
+        width: 200px;
+        margin-right: 33px;
+        .el-input-group__append {
+          padding: 0 10px;
+          overflow: hidden;
+          transition: all 0.3s;
+          .el-button {
             transition: all 0.3s;
+          }
+          [class*=" el-icon-"],
+          [class^="el-icon-"] {
+            font-size: 16px;
+            position: relative;
+            top: 2px;
+            transition: all 0.3s;
+          }
+          &:hover {
+            border-color: @base-color2;
             .el-button {
-              transition: all 0.3s;
+              background: @base-color2;
             }
             [class*=" el-icon-"],
             [class^="el-icon-"] {
-              font-size: 16px;
-              position: relative;
-              top: 2px;
-              transition: all 0.3s;
+              color: #fff;
             }
-            &:hover {
-              border-color: @base-color2;
-              .el-button {
-                background: @base-color2;
-              }
-              [class*=" el-icon-"],
-              [class^="el-icon-"] {
-                color: #fff;
-              }
-            }
-          }
-        }
-        .filter-title {
-          line-height: 28px;
-          color: @text-color;
-          font-size: 14px;
-          margin-right: 15px;
-        }
-        .float-right {
-          .filter-title {
-            line-height: 28px;
-            color: @base_grey;
-            font-size: 14px;
-            margin-right: 8px;
           }
         }
       }
-      .school-list {
-        width: 100%;
-        margin-top: 20px;
-        padding-top: 50px;
-        border-top: 1px solid @border_color;
-        li {
-          .ul-li-title {
-            font-size: 18px;
-            margin-bottom: 6px;
-            color: @text-color;
+      .filter-title {
+        line-height: 28px;
+        color: @text-color;
+        font-size: 14px;
+        margin-right: 15px;
+      }
+      .float-right {
+        .filter-title {
+          line-height: 28px;
+          color: @base_grey;
+          font-size: 14px;
+          margin-right: 8px;
+        }
+      }
+    }
+    .school-list {
+      width: 100%;
+      margin-top: 20px;
+      padding-top: 50px;
+      border-top: 1px solid @border_color;
+      li {
+        .ul-li-title {
+          font-size: 18px;
+          margin-bottom: 6px;
+          color: @text-color;
+        }
+        .list-ol {
+          border-top: 1px solid @border_color;
+          padding-top: 20px;
+          margin-bottom: 30px;
+          &::after {
+            content: "";
+            display: block;
+            visibility: hidden;
+            clear: both;
           }
-          .list-ol {
-            border-top: 1px solid @border_color;
-            padding-top: 20px;
-            margin-bottom: 30px;
-            &::after {
-              content: "";
-              display: block;
-              visibility: hidden;
-              clear: both;
+          li {
+            margin-right: 20px;
+            &:nth-child(4n) {
+              margin-right: 0;
             }
-            li {
-              margin-right: 20px;
-              &:nth-child(4n) {
-                margin-right: 0;
+            a {
+              display: block;
+              width: 272px;
+              height: 70px;
+              color: @base_grey;
+              font-size: 14px;
+              text-align: center;
+              border: 1px solid #a8def7;
+              border-radius: 5px;
+              background: #dff2fc;
+              margin-bottom: 19px;
+              position: relative;
+              transition: all 0.3s;
+              &:hover {
+                border: 1px solid #cdcdce;
+                background: #efeff0;
+                color: @base-color2;
               }
-              a {
-                display: block;
-                width: 272px;
-                height: 70px;
-                color: @base_grey;
-                font-size: 14px;
-                text-align: center;
-                border: 1px solid #a8def7;
-                border-radius: 5px;
-                background: #dff2fc;
-                margin-bottom: 19px;
-                position: relative;
-                transition: all 0.3s;
-                &:hover {
-                  border: 1px solid #cdcdce;
-                  background: #efeff0;
-                  color: @base-color2;
-                }
-              }
-              .text-container {
-                width: 272px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                padding: 0 14px;
-                transform: translate(-50%, -50%);
-              }
-              .school-name {
-                margin-top: 5px;
-              }
+            }
+            .text-container {
+              width: 272px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              padding: 0 14px;
+              transform: translate(-50%, -50%);
+            }
+            .school-name {
+              margin-top: 5px;
             }
           }
         }
-        .bgChange {
-          .list-ol {
-            li {
-              a {
-                border: 1px solid #cdcdce;
-                background: #efeff0;
-                &:hover {
-                  border: 1px solid #a8def7;
-                  background: #dff2fc;
-                  color: @base_grey;
-                }
+      }
+      .bgChange {
+        .list-ol {
+          li {
+            a {
+              border: 1px solid #cdcdce;
+              background: #efeff0;
+              &:hover {
+                border: 1px solid #a8def7;
+                background: #dff2fc;
+                color: @base_grey;
               }
             }
           }
