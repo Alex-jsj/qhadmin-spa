@@ -24,7 +24,7 @@
     <div class="data-display">
       <!-- menu -->
       <div class="data-menu">
-        <span ref="data" v-for="(item,index) in data_display" :key="item.id" @click="data_switch($event,index)" :class="item.classCon?'span-active':''">{{item.name}}</span>
+        <span ref="data" v-for="(item,index) in data_display" :key="item.id" @click="data_switch($event,index)" class="float-left" :class="item.classCon?'span-active':''">{{item.name}}</span>
         <i class="line" :style="{left:line_left,width:line_Width}"></i>
       </div>
       <!-- 展示容器 -->

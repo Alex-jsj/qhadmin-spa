@@ -64,7 +64,7 @@
         border: 0;
         outline: none;
         font-size: 100%;
-        font-family: arial, "微软雅黑", "宋体", "华文细黑", \5B8B\4F53, sans-serif;
+        font-family: "微软雅黑", arial, "宋体", "华文细黑", \5B8B\4F53, sans-serif;
         /* font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif; */
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -130,9 +130,6 @@
         color: #00a0e9;
         font-size: 50px;
         transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
     }
 
     .loading-close {

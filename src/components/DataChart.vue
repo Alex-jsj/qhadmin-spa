@@ -330,16 +330,13 @@ export default {
         line-height: 24px;
       }
       .el-range-input {
-        font-size: 12px;
-        height: 20px;
-        position: relative;
-        top: -5px;
+        float: left;
       }
       .el-range-separator {
         width: 12%;
-        line-height: 24px;
+        float: left;
         position: relative;
-        top: -5px;
+        top: 1px;
       }
       .el-select {
         width: 160px;
