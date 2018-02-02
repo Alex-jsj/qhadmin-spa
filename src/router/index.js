@@ -15,6 +15,10 @@ import AddSite from '@/pages/system_administrators/AddSite' //添加站点
 import SiteList from '@/pages/system_administrators/SiteList' //站点列表
 import ContentManagement from '@/pages/system_administrators/ContentManagement' //内容管理
 import DataBackup from '@/pages/system_administrators/DataBackup' //数据备份
+import AddEnclosure from '@/pages/system_administrators/AddEnclosure' //添加附件
+import EnclosureList from '@/pages/system_administrators/EnclosureList' //附件列表
+import AddComponent from '@/pages/system_administrators/AddComponent' //添加组件
+import ComponentList from '@/pages/system_administrators/ComponentList' //组件列表
 Vue.use(Router)
 
 export default new Router({
@@ -68,6 +72,22 @@ export default new Router({
                 {
                     path: 'DataBackup',
                     component: DataBackup
+                },
+                {
+                    path: 'AddEnclosure',
+                    component: AddEnclosure
+                },
+                {
+                    path: 'EnclosureList',
+                    component: EnclosureList
+                },
+                {
+                    path: 'AddComponent',
+                    component: AddComponent
+                },
+                {
+                    path: 'ComponentList',
+                    component: ComponentList
                 },
             ]
         },

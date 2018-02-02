@@ -339,6 +339,33 @@ body {
                     color: #909399;
                 }
             }
+            /* 表格带图样式 */
+            .carousel_container {
+                position: relative;
+                .carousel-img {
+                    width: auto;
+                    height: 80px;
+                    overflow: hidden;
+                    position: relative;
+                    border: 1px solid @base-color;
+                    position: relative;
+                    >img {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 100%;
+                        min-height: 100%;
+                    }
+                }
+                .carousel-link {
+                    color: @text-color;
+                    transition: all 0.3s;
+                    &:hover {
+                        color: @base-color2;
+                    }
+                }
+            }
         }
     }
 }

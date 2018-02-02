@@ -232,6 +232,7 @@ body {
   /* 表格筛选栏 */
   /* 三级菜单 */
   /* 表格主体 */
+  /* 表格带图样式 */
 }
 .public-wap .main .table-container .table-filter {
   width: 100%;
@@ -324,6 +325,31 @@ body {
   background-color: rgba(144, 146, 152, 0.1);
   border-color: rgba(144, 146, 152, 0.2);
   color: #909399;
+}
+.public-wap .main .table-container .carousel_container {
+  position: relative;
+}
+.public-wap .main .table-container .carousel_container .carousel-img {
+  width: auto;
+  height: 80px;
+  overflow: hidden;
+  border: 1px solid #54c3f1;
+  position: relative;
+}
+.public-wap .main .table-container .carousel_container .carousel-img > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-height: 100%;
+}
+.public-wap .main .table-container .carousel_container .carousel-link {
+  color: #606266;
+  transition: all 0.3s;
+}
+.public-wap .main .table-container .carousel_container .carousel-link:hover {
+  color: #00a0e9;
 }
 .public-container {
   width: 990px;

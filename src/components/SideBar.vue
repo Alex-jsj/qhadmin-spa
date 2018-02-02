@@ -2,7 +2,7 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:35:20 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 10:53:38
+ * @Last Modified time: 2018-02-02 16:25:15
  */
 
 <template>
@@ -95,12 +95,12 @@ export default {
           second_class_column: [
             {
               column_name: "添加组件",
-              column_url: "",
+              column_url: "AddComponent",
               column_active: false
             },
             {
               column_name: "组件列表",
-              column_url: "",
+              column_url: "ComponentList",
               column_active: false
             }
           ]
