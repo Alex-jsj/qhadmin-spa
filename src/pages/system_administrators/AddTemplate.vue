@@ -2,20 +2,20 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 16:35:42
+ * @Last Modified time: 2018-02-02 16:41:22
  */
 
 
 <template>
-  <div id="AddComponent">
+  <div id="AddTemplate">
     <Crumb :crumbs="crumbs"></Crumb>
     <!-- Instructions -->
     <Instructions :instructionsInfo="instructionsInfo"></Instructions>
     <!-- Form -->
     <div class="form-container">
       <!-- 表单 -->
-      <el-form ref="form" :model="form" :rules="rules" status-icon label-width="95px" size="mini" label-position="right">
-        <el-form-item label="组件名称：" class="form-item" prop="title">
+      <el-form ref="form" :model="form" :rules="rules" status-icon label-width="125px" size="mini" label-position="right">
+        <el-form-item label="模板名称：" class="form-item" prop="title">
           <el-input v-model="form.title"></el-input>
         </el-form-item>
         <el-form-item label="编码：" class="form-item" prop="code">
@@ -24,14 +24,31 @@
           </el-select>
         </el-form-item>
         <el-form-item label="类型：" class="form-item" prop="type">
-          <el-select v-model="form.type" clearable placeholder="选择类型" size="mini">
+          <el-select v-model="form.type" clearable placeholder="所属部门" size="mini">
             <el-option v-for="item in type_list" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="授权：" class="form-item" prop="gave">
-          <el-select v-model="form.gave" clearable placeholder="所属部门" size="mini">
-            <el-option v-for="item in gave_list" :key="item.value" :label="item.label" :value="item.value"></el-option>
-          </el-select>
+        <el-form-item label="模版html路径：" class="form-item" prop="html_src">
+          <el-input v-model="form.html_src"></el-input>
+          <span class="site-item-info">填写模版所在文件路径 /template/blue2017</span>
+        </el-form-item>
+        <el-form-item label="模版css路径：" class="form-item" prop="css_src">
+          <el-input v-model="form.css_src"></el-input>
+          <span class="site-item-info">填写模版样式文件路径</span>
+        </el-form-item>
+        <el-form-item label="模版图片路径：" class="form-item" prop="img_src">
+          <el-input v-model="form.img_src"></el-input>
+          <span class="site-item-info">填写模版图片文件路径</span>
+        </el-form-item>
+        <el-form-item label="模版js路径：" class="form-item" prop="js_src">
+          <el-input v-model="form.js_src"></el-input>
+          <span class="site-item-info">填写模版js文件路径</span>
+        </el-form-item>
+        <el-form-item label="上传预览图：" class="form-item">
+          <el-upload action="./upload/upload.json" class="avatar-uploader wechat_weibo_uploader" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+            <img v-if="form.img" :src="form.weibo_img" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
         </el-form-item>
         <el-form-item label="排序：" class="form-item" prop="sort">
           <el-input v-model.number="form.sort"></el-input>
@@ -53,7 +70,7 @@ import Crumb from "@/components/Crumb";
 import Instructions from "@/components/Instructions";
 /* 工作台 */
 export default {
-  name: "AddComponent",
+  name: "AddTemplate",
   data() {
     return {
       //面包屑
@@ -63,11 +80,11 @@ export default {
           url: "/pages/system_administrators/System_Administrators"
         },
         {
-          name: "组件管理",
+          name: "模板管理",
           url: ""
         },
         {
-          name: "添加组件",
+          name: "添加模板",
           url: ""
         }
       ],
@@ -87,23 +104,74 @@ export default {
       //表单
       form: {
         title: "", //站点名称
-        code: "",
-        type: "",
-        gave: "",
+        code: "", //编码
+        img: "", //新浪微博二维码
         sort: "", //排序
-        remarks: "" //备注
+        type: "", //类型
+        html_src: "",
+        css_src: "",
+        img_src: "",
+        js_src: ""
       },
       //表单验证
       rules: {
         title: [
           {
             required: true,
-            message: "请输入组件名称",
+            message: "请输入站点名称",
             trigger: "blur"
           },
           {
             min: 1,
-            message: "组件名称不能为空",
+            message: "站点名称不能为空",
+            trigger: "blur"
+          }
+        ],
+        html_src: [
+          {
+            required: true,
+            message: "请输入html路径",
+            trigger: "blur"
+          },
+          {
+            min: 1,
+            message: "html路径不能为空",
+            trigger: "blur"
+          }
+        ],
+        css_src: [
+          {
+            required: true,
+            message: "请输入css路径",
+            trigger: "blur"
+          },
+          {
+            min: 1,
+            message: "css路径不能为空",
+            trigger: "blur"
+          }
+        ],
+        img_src: [
+          {
+            required: true,
+            message: "请输入img路径",
+            trigger: "blur"
+          },
+          {
+            min: 1,
+            message: "img路径不能为空",
+            trigger: "blur"
+          }
+        ],
+        js_src: [
+          {
+            required: true,
+            message: "请输入js路径",
+            trigger: "blur"
+          },
+          {
+            min: 1,
+            message: "js路径不能为空",
             trigger: "blur"
           }
         ],
@@ -133,16 +201,8 @@ export default {
             message: "请选择类型",
             trigger: "change"
           }
-        ],
-        gave: [
-          {
-            required: true,
-            message: "请选择部门",
-            trigger: "change"
-          }
         ]
       },
-      //编码
       code_list: [
         {
           value: 0,
@@ -156,74 +216,11 @@ export default {
       type_list: [
         {
           value: 0,
-          label: "组件"
+          label: "整站模板"
         },
         {
           value: 1,
-          label: "第三方组件"
-        }
-      ],
-      //授权
-      gave_list: [
-        {
-          value: 0,
-          label: "党员办"
-        },
-        {
-          value: 1,
-          label: "组织人事"
-        },
-        {
-          value: 2,
-          label: "纪监审办公室"
-        },
-        {
-          value: 3,
-          label: "宣传部"
-        },
-        {
-          value: 4,
-          label: "研究生工作部"
-        },
-        {
-          value: 5,
-          label: "学生工作部"
-        },
-        {
-          value: 6,
-          label: "网络中心"
-        },
-        {
-          value: 7,
-          label: "教务处"
-        },
-        {
-          value: 8,
-          label: "招生办公室"
-        },
-        {
-          value: 9,
-          label: "科研创作处"
-        },
-        {
-          value: 10,
-          label: "外事处"
-        },
-        {
-          value: 11,
-          label: "计划财务处"
-        },
-        {
-          value: 12,
-          label: "校园建设和管理处"
-        },
-        {
-          value: 13,
-          label: "工会"
-        },
-        {
-          value: 14,
-          label: "保卫处"
+          label: "组件模板"
         }
       ]
     };
@@ -234,10 +231,26 @@ export default {
   },
   mounted: function() {
     //侧边导航定位
-    sessionStorage.setItem("system_menu_idx", 3);
-    this.$store.commit("update_system_menu_idx", 3);
+    sessionStorage.setItem("system_menu_idx", 4);
+    this.$store.commit("update_system_menu_idx", 4);
   },
   methods: {
+    //图片上传
+    handleAvatarSuccess(res, file) {
+      this.form.wechat_img = URL.createObjectURL(file.raw);
+    },
+    //上传限制
+    beforeAvatarUpload(file) {
+      const isJPG = file.type === "image/jpeg";
+      const isLt2M = file.size / 1024 / 1024 < 2;
+      if (!isJPG) {
+        this.$message.error("上传缩略图片只能是 JPG 格式!");
+      }
+      if (!isLt2M) {
+        this.$message.error("上传缩略图片大小不能超过 2MB!");
+      }
+      return isJPG && isLt2M;
+    },
     //表单提交
     submitForm(formName) {
       var that = this;

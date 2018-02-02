@@ -2,39 +2,50 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 16:35:42
+ * @Last Modified time: 2018-02-02 17:12:59
  */
 
 
 <template>
-  <div id="AddComponent">
+  <div id="AddUser">
     <Crumb :crumbs="crumbs"></Crumb>
     <!-- Instructions -->
     <Instructions :instructionsInfo="instructionsInfo"></Instructions>
     <!-- Form -->
     <div class="form-container">
       <!-- 表单 -->
-      <el-form ref="form" :model="form" :rules="rules" status-icon label-width="95px" size="mini" label-position="right">
-        <el-form-item label="组件名称：" class="form-item" prop="title">
-          <el-input v-model="form.title"></el-input>
+      <el-form ref="form" :model="form" :rules="rules" status-icon label-width="108px" size="mini" label-position="right">
+        <el-form-item label="登录用户名：" class="form-item" prop="user_name">
+          <el-input v-model="form.uesr_name"></el-input>
         </el-form-item>
-        <el-form-item label="编码：" class="form-item" prop="code">
-          <el-select v-model="form.code" clearable placeholder="所属类别" size="mini">
-            <el-option v-for="item in code_list" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        <el-form-item label="姓名：" class="form-item">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="登录密码：" class="form-item" prop="password">
+          <el-input v-model="form.password"></el-input>
+          <span class="site-item-info">最少6位，英文与数字或下划线组合</span>
+        </el-form-item>
+        <el-form-item label="用户组：" class="form-item" prop="user_group">
+          <el-select v-model="form.user_group" clearable size="mini">
+            <el-option v-for="item in user_group_list" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="类型：" class="form-item" prop="type">
-          <el-select v-model="form.type" clearable placeholder="选择类型" size="mini">
-            <el-option v-for="item in type_list" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        <el-form-item label="所属部门：" class="form-item" prop="subordinateDepartmentValue">
+          <el-select v-model="form.subordinateDepartmentValue" clearable size="mini">
+            <el-option v-for="item in subordinateDepartment" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="授权：" class="form-item" prop="gave">
-          <el-select v-model="form.gave" clearable placeholder="所属部门" size="mini">
-            <el-option v-for="item in gave_list" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        <el-form-item label="管理站点：" class="form-item" prop="site">
+          <el-select v-model="form.site" clearable size="mini">
+            <el-option v-for="item in site_list" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="排序：" class="form-item" prop="sort">
-          <el-input v-model.number="form.sort"></el-input>
+        <el-form-item label="是否开启：" class="form-item">
+          <el-switch v-model="form.open" active-color="#13ce66" inactive-color="#aaa"></el-switch>
+        </el-form-item>
+        <el-form-item label="关闭原因：" class="form-item" prop="close_info" v-if="!form.open">
+          <el-input v-model="form.close_info" type="textarea" :rows="2"></el-input>
+          <span class="site-item-info">必须填写，最多50个字符</span>
         </el-form-item>
         <el-form-item label="备注：" class="form-item">
           <el-input v-model="form.remarks" type="textarea" :rows="2"></el-input>
@@ -53,7 +64,7 @@ import Crumb from "@/components/Crumb";
 import Instructions from "@/components/Instructions";
 /* 工作台 */
 export default {
-  name: "AddComponent",
+  name: "AddUser",
   data() {
     return {
       //面包屑
@@ -63,11 +74,15 @@ export default {
           url: "/pages/system_administrators/System_Administrators"
         },
         {
-          name: "组件管理",
+          name: "权限管理",
           url: ""
         },
         {
-          name: "添加组件",
+          name: "用户管理",
+          url: ""
+        },
+        {
+          name: "添加用户",
           url: ""
         }
       ],
@@ -86,33 +101,54 @@ export default {
       subLoading: false,
       //表单
       form: {
-        title: "", //站点名称
-        code: "",
-        type: "",
-        gave: "",
-        sort: "", //排序
-        remarks: "" //备注
+        user_name: "", //用户名
+        name: "", //姓名
+        subordinateDepartmentValue: "", //所属部门
+        password: "", //密码
+        user_group: "", //用户组
+        site: "", //管理站点
+        remarks: "", //备注
+        open: true, //是否开启
+        close_info: "" //关闭原因
       },
       //表单验证
       rules: {
-        title: [
+        user_name: [
           {
             required: true,
-            message: "请输入组件名称",
+            message: "请输入用户名",
             trigger: "blur"
           },
           {
             min: 1,
-            message: "组件名称不能为空",
+            message: "用户名不能为空",
             trigger: "blur"
           }
         ],
-        sort: [
+        close_info: [
+          {
+            required: true,
+            message: "请输入关闭原因",
+            trigger: "blur"
+          },
+          {
+            min: 1,
+            max: 50,
+            message: "不能超过50个字",
+            trigger: "blur"
+          }
+        ],
+        password: [
           {
             required: true,
             validator: function(rule, value, callback) {
-              if (!Number.isInteger(value)) {
-                callback(new Error("请输入数字值"));
+              var reg = /^[0-9a-zA-Z_]{6,12}$/; //6-12位数字字母下划线
+              if (!value) {
+                callback(new Error("密码不能为空"));
+              } else if (reg.test(value) == false) {
+                callback(
+                  new Error("密码必须为数字/字母/下划线,长度6-12位之间")
+                );
               } else {
                 callback();
               }
@@ -120,51 +156,29 @@ export default {
             trigger: "blur"
           }
         ],
-        code: [
+        user_group: [
           {
             required: true,
-            message: "请选择编码",
+            message: "请选择用户组",
             trigger: "change"
           }
         ],
-        type: [
+        subordinateDepartmentValue: [
           {
             required: true,
-            message: "请选择类型",
+            message: "请选择所属部门",
             trigger: "change"
           }
         ],
-        gave: [
+        site: [
           {
             required: true,
-            message: "请选择部门",
+            message: "请选择站点",
             trigger: "change"
           }
         ]
       },
-      //编码
-      code_list: [
-        {
-          value: 0,
-          label: "UTF8"
-        },
-        {
-          value: 1,
-          label: "GBK"
-        }
-      ],
-      type_list: [
-        {
-          value: 0,
-          label: "组件"
-        },
-        {
-          value: 1,
-          label: "第三方组件"
-        }
-      ],
-      //授权
-      gave_list: [
+      subordinateDepartment: [
         {
           value: 0,
           label: "党员办"
@@ -225,7 +239,22 @@ export default {
           value: 14,
           label: "保卫处"
         }
-      ]
+      ],
+      user_group_list: [
+        {
+          value: 0,
+          label: "系统超级管理员"
+        },
+        {
+          value: 1,
+          label: "分站管理员"
+        },
+        {
+          value: 2,
+          label: "编辑"
+        }
+      ],
+      site_list: []
     };
   },
   components: {
@@ -234,8 +263,8 @@ export default {
   },
   mounted: function() {
     //侧边导航定位
-    sessionStorage.setItem("system_menu_idx", 3);
-    this.$store.commit("update_system_menu_idx", 3);
+    sessionStorage.setItem("system_menu_idx", 5);
+    this.$store.commit("update_system_menu_idx", 5);
   },
   methods: {
     //表单提交

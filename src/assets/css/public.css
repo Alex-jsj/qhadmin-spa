@@ -154,6 +154,7 @@ body {
   border-radius: 3px;
   /* 表单公共样式 */
   /* 表格公共样式 */
+  /* 模板列表 */
 }
 .public-wap .main .form-container {
   width: 100%;
@@ -350,6 +351,67 @@ body {
 }
 .public-wap .main .table-container .carousel_container .carousel-link:hover {
   color: #00a0e9;
+}
+.public-wap .main .template-list {
+  width: 100%;
+}
+.public-wap .main .template-list > ul {
+  width: 100%;
+}
+.public-wap .main .template-list > ul > li {
+  width: 100%;
+}
+.public-wap .main .template-list > ul > li .template-title {
+  text-align: center;
+  color: #00a0e9;
+  padding: 5px 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.public-wap .main .template-list > ul > li > ol::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+.public-wap .main .template-list > ul > li > ol > li {
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+.public-wap .main .template-list > ul > li > ol > li:nth-child(4n) {
+  margin-right: 0;
+}
+.public-wap .main .template-list > ul > li > ol > li .template-img-box {
+  width: 200px;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
+}
+.public-wap .main .template-list > ul > li > ol > li .template-img-box > img {
+  width: 100%;
+  min-height: 100%;
+}
+.public-wap .main .template-list > ul > li > ol > li .t-name {
+  color: #54c3f1;
+  margin: 10px 0;
+  font-size: 16px;
+}
+.public-wap .main .template-list > ul > li > ol > li .t-url a {
+  color: #606266;
+  font-size: 14px;
+  padding: 5px 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  margin-right: 15px;
+  transition: all 0.3s;
+}
+.public-wap .main .template-list > ul > li > ol > li .t-url a:hover {
+  color: #409eff;
+  border-color: #c6e2ff;
+  background-color: #ecf5ff;
+}
+.public-wap .main .template-list > ul > li .paging {
+  margin-top: 0;
+  margin-bottom: 50px;
 }
 .public-container {
   width: 990px;

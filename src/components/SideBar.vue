@@ -2,7 +2,7 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:35:20 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 16:25:15
+ * @Last Modified time: 2018-02-02 17:29:39
  */
 
 <template>
@@ -114,12 +114,12 @@ export default {
           second_class_column: [
             {
               column_name: "添加模板",
-              column_url: "",
+              column_url: "AddTemplate",
               column_active: false
             },
             {
               column_name: "模板列表",
-              column_url: "",
+              column_url: "TemplateList",
               column_active: false
             }
           ]
@@ -133,22 +133,22 @@ export default {
           second_class_column: [
             {
               column_name: "添加用户",
-              column_url: "",
+              column_url: "AddUser",
               column_active: false
             },
             {
               column_name: "用户管理",
-              column_url: "",
+              column_url: "UserList",
               column_active: false
             },
             {
               column_name: "添加用户组",
-              column_url: "",
+              column_url: "AddUserGroup",
               column_active: false
             },
             {
               column_name: "用户组管理",
-              column_url: "",
+              column_url: "UserGroupList",
               column_active: false
             }
           ]

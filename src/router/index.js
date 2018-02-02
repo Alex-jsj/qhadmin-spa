@@ -3,7 +3,7 @@ import Router from 'vue-router'
 //前台首页
 import Home from '@/pages/index/Home'
 import Search from '@/pages/index/Search' //前台搜索页
-import Rank from '@/pages/index/Rank' //前台搜索页
+import Rank from '@/pages/index/Rank' //前台排行榜页
 //登录页
 import Login from '@/pages/admin/Login'
 //后台首页
@@ -19,6 +19,12 @@ import AddEnclosure from '@/pages/system_administrators/AddEnclosure' //添加�
 import EnclosureList from '@/pages/system_administrators/EnclosureList' //附件列表
 import AddComponent from '@/pages/system_administrators/AddComponent' //添加组件
 import ComponentList from '@/pages/system_administrators/ComponentList' //组件列表
+import AddTemplate from '@/pages/system_administrators/AddTemplate' //添加模板
+import TemplateList from '@/pages/system_administrators/TemplateList' //模板列表
+import AddUser from '@/pages/system_administrators/AddUser' //添加用户
+import UserList from '@/pages/system_administrators/UserList' //用户列表
+import AddUserGroup from '@/pages/system_administrators/AddUserGroup' //添加用户组
+import UserGroupList from '@/pages/system_administrators/UserGroupList' //用户组列表
 Vue.use(Router)
 
 export default new Router({
@@ -88,6 +94,30 @@ export default new Router({
                 {
                     path: 'ComponentList',
                     component: ComponentList
+                },
+                {
+                    path: 'AddTemplate',
+                    component: AddTemplate
+                },
+                {
+                    path: 'TemplateList',
+                    component: TemplateList
+                },
+                {
+                    path: 'AddUser',
+                    component: AddUser
+                },
+                {
+                    path: 'UserList',
+                    component: UserList
+                },
+                {
+                    path: 'AddUserGroup',
+                    component: AddUserGroup
+                },
+                {
+                    path: 'UserGroupList',
+                    component: UserGroupList
                 },
             ]
         },
