@@ -8,8 +8,9 @@
 
 <template>
   <div id="AddTemplate">
+    <!-- 面包屑 -->
     <Crumb :crumbs="crumbs"></Crumb>
-    <!-- Instructions -->
+    <!-- 使用说明 -->
     <Instructions :instructionsInfo="instructionsInfo"></Instructions>
     <!-- Form -->
     <div class="form-container">
@@ -68,7 +69,7 @@
 /* 引入组件 */
 import Crumb from "@/components/Crumb";
 import Instructions from "@/components/Instructions";
-/* 工作台 */
+/* 添加模板 */
 export default {
   name: "AddTemplate",
   data() {

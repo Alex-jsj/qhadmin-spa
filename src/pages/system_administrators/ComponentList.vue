@@ -8,8 +8,9 @@
 
 <template>
   <div id="ComponentList">
+    <!-- 面包屑 -->
     <Crumb :crumbs="crumbs"></Crumb>
-    <!-- Instructions -->
+    <!-- 使用说明 -->
     <Instructions :instructionsInfo="instructionsInfo"></Instructions>
     <!-- Table -->
     <div class="table-container">
@@ -58,7 +59,7 @@
 import Crumb from "@/components/Crumb";
 import Paging from "@/components/Paging";
 import Instructions from "@/components/Instructions";
-/* 工作台 */
+/* 组件列表 */
 export default {
   name: "ComponentList",
   data() {

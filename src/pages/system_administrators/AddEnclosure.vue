@@ -2,14 +2,15 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 15:52:19
+ * @Last Modified time: 2018-02-02 17:40:59
  */
 
 
 <template>
   <div id="AddEnclosure">
+    <!-- 面包屑 -->
     <Crumb :crumbs="crumbs"></Crumb>
-    <!-- Instructions -->
+    <!-- 使用说明 -->
     <Instructions :instructionsInfo="instructionsInfo"></Instructions>
     <!-- Form -->
     <div class="form-container">
@@ -50,7 +51,7 @@
 /* 引入组件 */
 import Crumb from "@/components/Crumb";
 import Instructions from "@/components/Instructions";
-/* 工作台 */
+/* 添加附件 */
 export default {
   name: "DataBackup",
   data() {

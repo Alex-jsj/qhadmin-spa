@@ -8,8 +8,9 @@
 
 <template>
   <div id="DataBackup">
+    <!-- 面包屑 -->
     <Crumb :crumbs="crumbs"></Crumb>
-    <!-- Instructions -->
+    <!-- 使用说明 -->
     <Instructions :instructionsInfo="instructionsInfo"></Instructions>
     <!-- Form -->
     <div class="form-container">
@@ -43,7 +44,7 @@
 import Crumb from "@/components/Crumb";
 import Instructions from "@/components/Instructions";
 import InnerMenu from "@/components/InnerMenu";
-/* 工作台 */
+/* 数据备份 */
 export default {
   name: "DataBackup",
   data() {

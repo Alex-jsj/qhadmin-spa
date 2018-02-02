@@ -1,18 +1,18 @@
 /*
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:23:03 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-01 23:21:22
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-02-02 17:43:10
  */
 
 <template>
   <div id="system_admin" class="public-wap">
     <!-- Header -->
     <Header></Header>
-    <!-- Nav -->
+    <!-- 顶部导航 -->
     <Nav :systemNavShow="true"></Nav>
     <div class="main">
-      <!-- SideBar -->
+      <!-- 侧边导航 -->
       <SideBar></SideBar>
       <!-- Subject -->
       <div class="subject public-container float-right">
