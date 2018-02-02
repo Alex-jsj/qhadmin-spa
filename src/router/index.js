@@ -25,6 +25,9 @@ import AddUser from '@/pages/system_administrators/AddUser' //添加用户
 import UserList from '@/pages/system_administrators/UserList' //用户列表
 import AddUserGroup from '@/pages/system_administrators/AddUserGroup' //添加用户组
 import UserGroupList from '@/pages/system_administrators/UserGroupList' //用户组列表
+import DepartmentList from '@/pages/system_administrators/DepartmentList' //部门列表
+import SiteInfo from '@/pages/system_administrators/SiteInfo' //站点信息
+import LoginLog from '@/pages/system_administrators/LoginLog' //登陆日志
 Vue.use(Router)
 
 export default new Router({
@@ -118,6 +121,18 @@ export default new Router({
                 {
                     path: 'UserGroupList',
                     component: UserGroupList
+                },
+                {
+                    path: 'DepartmentList',
+                    component: DepartmentList
+                },
+                {
+                    path: 'SiteInfo',
+                    component: SiteInfo
+                },
+                {
+                    path: 'LoginLog',
+                    component: LoginLog
                 },
             ]
         },

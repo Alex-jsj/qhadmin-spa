@@ -2,7 +2,7 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:35:20 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 17:29:39
+ * @Last Modified time: 2018-02-02 18:27:03
  */
 
 <template>
@@ -162,17 +162,17 @@ export default {
           second_class_column: [
             {
               column_name: "部门管理",
-              column_url: "",
+              column_url: "DepartmentList",
               column_active: false
             },
             {
               column_name: "全局设置",
-              column_url: "",
+              column_url: "SiteInfo",
               column_active: false
             },
             {
               column_name: "系统日志",
-              column_url: "",
+              column_url: "LoginLog",
               column_active: false
             }
           ]

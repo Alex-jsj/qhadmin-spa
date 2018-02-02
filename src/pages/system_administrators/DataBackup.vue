@@ -2,20 +2,20 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 14:53:35
+ * @Last Modified time: 2018-02-02 18:16:19
  */
 
 
 <template>
   <div id="DataBackup">
+    <!-- 内层菜单 -->
+    <InnerMenu :innerMenu="innerMenu"></InnerMenu>
     <!-- 面包屑 -->
     <Crumb :crumbs="crumbs"></Crumb>
     <!-- 使用说明 -->
     <Instructions :instructionsInfo="instructionsInfo"></Instructions>
     <!-- Form -->
     <div class="form-container">
-      <!-- 内层菜单 -->
-      <InnerMenu :innerMenu="innerMenu"></InnerMenu>
       <!-- 表单 -->
       <el-form ref="form" :model="form" :rules="rules" status-icon size="mini" label-position="top">
         <el-form-item>
@@ -80,12 +80,19 @@ export default {
         system: true,
         list: [
           {
+            name: "数据备份",
+            url: "",
+            list_active: true
+          },
+          {
             name: "自动备份设置",
-            url: ""
+            url: "",
+            list_active: false
           },
           {
             name: "数据恢复",
-            url: ""
+            url: "",
+            list_active: false
           }
         ]
       },
@@ -138,7 +145,6 @@ export default {
   .backup-title {
     font-size: 16px;
     color: @text-color;
-    margin-top: 20px;
   }
 }
 </style>

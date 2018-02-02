@@ -259,9 +259,7 @@ body {
                 .filter-link {
                     height: 100%;
                     display: block;
-                }
-                .filter-title-2 {
-                    margin-left: 30px;
+                    margin-right: 10px;
                 }
                 .column-selection,
                 .state-selection {
@@ -431,6 +429,35 @@ body {
                         margin-bottom: 50px;
                     }
                 }
+            }
+        }
+        /* 多级表格 */
+        .column-container {
+            .second-table {
+                border-top: 1px solid #ebeef5;
+                .el-table__header-wrapper {
+                    display: none;
+                }
+                .el-table__row,
+                .el-table__row>td {
+                    background: #e7e7e7;
+                }
+                .el-table__expand-icon>.el-icon {
+                    font-size: 12px;
+                    left: 50%;
+                    top: 50%;
+                }
+            }
+            .el-table__row.expanded {
+                background: #e7e7e7;
+            }
+            .el-table__expanded-cell[class*=cell] {
+                padding: 0 0 20px 0;
+            }
+            .el-table__expand-icon>.el-icon {
+                font-size: 20px;
+                left: 43%;
+                top: 32%;
             }
         }
     }

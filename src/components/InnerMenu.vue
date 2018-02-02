@@ -2,7 +2,7 @@
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-02-02 11:01:48 
  * @Last Modified by: Alex chenzeyongjsj@163.com
- * @Last Modified time: 2018-02-02 15:07:40
+ * @Last Modified time: 2018-02-02 18:25:03
  */
 
 <template>
@@ -10,7 +10,7 @@
     <ul class="nav-column">
       <li class="float-left" v-for="item in innerMenu.list" :key="item.id">
         <router-link :to="item.url">
-          <el-button type="primary" size="mini">{{item.name}}</el-button>
+          <el-button :type="item.list_active?'primary':''" size="mini" :plain="item.list_active">{{item.name}}</el-button>
         </router-link>
       </li>
     </ul>
@@ -29,6 +29,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
+@import "../assets/css/less_config";
 #inner-menu {
   width: 100%;
   height: 66px;
@@ -60,7 +61,11 @@ export default {
   }
 }
 #inner-menu.system-inner {
-  height: 28px;
+  border-radius: 0;
+  height: auto;
   padding: 0;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid @border_color;
 }
 </style>
