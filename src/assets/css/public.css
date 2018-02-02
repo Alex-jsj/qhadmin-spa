@@ -152,6 +152,8 @@ body {
   position: relative;
   background: #fff;
   border-radius: 3px;
+  /* 表单公共样式 */
+  /* 表格公共样式 */
 }
 .public-wap .main .form-container {
   width: 100%;
@@ -237,6 +239,13 @@ body {
   overflow: hidden;
   margin-bottom: 20px;
 }
+.public-wap .main .table-container .table-filter button {
+  display: block;
+  float: left;
+}
+.public-wap .main .table-container .table-filter button span {
+  display: block;
+}
 .public-wap .main .table-container .table-filter .last-btn {
   margin-left: 10px;
 }
@@ -244,37 +253,31 @@ body {
   height: 100%;
   display: block;
 }
-.public-wap .main .table-container .table-filter .filter-link span {
-  display: block;
-}
-.public-wap .main .table-container .table-filter .filter-link button {
-  display: block;
-}
-.public-wap .main .table-container .filter-title-2 {
+.public-wap .main .table-container .table-filter .filter-title-2 {
   margin-left: 30px;
 }
-.public-wap .main .table-container .column-selection,
-.public-wap .main .table-container .state-selection {
+.public-wap .main .table-container .table-filter .column-selection,
+.public-wap .main .table-container .table-filter .state-selection {
   width: 160px;
   margin-right: 5px;
 }
-.public-wap .main .table-container .title-search {
+.public-wap .main .table-container .table-filter .title-search {
   width: 220px;
 }
-.public-wap .main .table-container .title-search .el-input-group__append {
+.public-wap .main .table-container .table-filter .title-search .el-input-group__append {
   padding-left: 8px;
   padding-right: 8px;
   overflow: hidden;
   transition: all 0.3s;
 }
-.public-wap .main .table-container .title-search .el-input-group__append:hover {
+.public-wap .main .table-container .table-filter .title-search .el-input-group__append:hover {
   background: #00a0e9;
   border-color: #00a0e9;
 }
-.public-wap .main .table-container .title-search .el-input-group__append:hover .el-icon-search {
+.public-wap .main .table-container .table-filter .title-search .el-input-group__append:hover .el-icon-search {
   color: #fff;
 }
-.public-wap .main .table-container .title-search .el-icon-search {
+.public-wap .main .table-container .table-filter .title-search .el-icon-search {
   font-size: 20px;
   vertical-align: middle;
   transition: all 0.3s;

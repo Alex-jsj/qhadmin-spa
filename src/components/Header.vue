@@ -1,8 +1,8 @@
 /*
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-17 18:14:52 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-01 22:56:50
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-02-02 15:25:14
  */
 
 <template>
@@ -47,6 +47,7 @@ export default {
   methods: {
     clear_local() {
       localStorage.clear(); //退出登录清除登录信息
+      sessionStorage.setItem("system_menu_idx", 0); //退出登录清除登录信息
       this.$router.push({ path: "/" });
     }
   }

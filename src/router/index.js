@@ -13,6 +13,8 @@ import System_Administrators from '@/pages/system_administrators/System_Administ
 import Workbench from '@/pages/system_administrators/Workbench' //首页
 import AddSite from '@/pages/system_administrators/AddSite' //添加站点
 import SiteList from '@/pages/system_administrators/SiteList' //站点列表
+import ContentManagement from '@/pages/system_administrators/ContentManagement' //内容管理
+import DataBackup from '@/pages/system_administrators/DataBackup' //数据备份
 Vue.use(Router)
 
 export default new Router({
@@ -58,6 +60,14 @@ export default new Router({
                 {
                     path: 'SiteList',
                     component: SiteList
+                },
+                {
+                    path: 'ContentManagement',
+                    component: ContentManagement
+                },
+                {
+                    path: 'DataBackup',
+                    component: DataBackup
                 },
             ]
         },

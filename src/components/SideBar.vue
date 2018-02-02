@@ -1,8 +1,8 @@
 /*
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 14:35:20 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-01 23:01:04
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-02-02 10:53:38
  */
 
 <template>
@@ -57,12 +57,12 @@ export default {
             },
             {
               column_name: "内容管理",
-              column_url: "",
+              column_url: "ContentManagement",
               column_active: false
             },
             {
               column_name: "数据备份",
-              column_url: "",
+              column_url: "DataBackup",
               column_active: false
             }
           ]
@@ -76,12 +76,12 @@ export default {
           second_class_column: [
             {
               column_name: "添加附件",
-              column_url: "",
+              column_url: "AddEnclosure",
               column_active: false
             },
             {
               column_name: "附件列表",
-              column_url: "",
+              column_url: "EnclosureList",
               column_active: false
             }
           ]

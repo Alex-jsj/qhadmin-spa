@@ -1,8 +1,8 @@
 /*
  * @Author: alex (chenzeyongjsj@163.com) 
  * @Date: 2018-01-25 22:03:48 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-01 22:31:32
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-02-02 11:02:32
  */
 <template>
   <div id="crumb">
@@ -16,7 +16,7 @@
 export default {
   name: "Crumb",
   props: {
-    crumbs: "" //面包屑
+    crumbs: Array //面包屑
   },
   data() {
     return {};

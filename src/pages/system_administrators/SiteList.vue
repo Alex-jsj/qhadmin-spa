@@ -1,8 +1,8 @@
 /*
  * @Author: Alex chenzeyongjsj@163.com 
  * @Date: 2018-01-31 15:51:10 
- * @Last Modified by: alex (chenzeyongjsj@163.com)
- * @Last Modified time: 2018-02-02 01:02:01
+ * @Last Modified by: Alex chenzeyongjsj@163.com
+ * @Last Modified time: 2018-02-02 10:54:36
  */
 
 
@@ -41,7 +41,7 @@
           <el-table-column label="操作" width="500" fixed="right">
             <div slot-scope="scope" class="control-btn">
               <el-button size="mini">
-                <a :href="scope.row.url">访问</a>
+                <router-link :to="scope.row.url">访问</router-link>
               </el-button>
               <el-button size="mini">切换</el-button>
               <el-button size="mini">编辑</el-button>
@@ -109,7 +109,7 @@ export default {
           date: "2017-02-20",
           state: "正常",
           count: 1,
-          url: ""
+          url: "javascript:void(0);"
         },
         {
           uid: 1,
@@ -133,7 +133,7 @@ export default {
           date: "2017-02-20",
           state: "正常",
           count: 1,
-          url: ""
+          url: "javascript:void(0);"
         },
         {
           uid: 3,
@@ -157,7 +157,7 @@ export default {
           date: "2017-02-20",
           state: "正常",
           count: 1,
-          url: ""
+          url: "javascript:void(0);"
         },
         {
           uid: 5,
@@ -181,7 +181,7 @@ export default {
           date: "2017-02-20",
           state: "正常",
           count: 1,
-          url: ""
+          url: "javascript:void(0);"
         },
         {
           uid: 7,
@@ -205,7 +205,7 @@ export default {
           date: "2017-02-20",
           state: "正常",
           count: 1,
-          url: ""
+          url: "javascript:void(0);"
         },
         {
           uid: 9,
@@ -229,7 +229,7 @@ export default {
           date: "2017-02-20",
           state: "正常",
           count: 1,
-          url: ""
+          url: "javascript:void(0);"
         }
       ],
       tableList: []
@@ -279,5 +279,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-@import "../../assets/css/less_config.less";
+
 </style>

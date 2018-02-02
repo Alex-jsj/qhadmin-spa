@@ -164,6 +164,7 @@ body {
         position: relative;
         background: #fff;
         border-radius: 3px;
+        /* 表单公共样式 */
         .form-container {
             width: 100%;
             margin-top: 20px;
@@ -234,6 +235,7 @@ body {
                 }
             }
         }
+        /* 表格公共样式 */
         .table-container {
             width: 100%;
             margin-top: 20px;
@@ -244,49 +246,50 @@ body {
                 height: 28px;
                 overflow: hidden;
                 margin-bottom: 20px;
+                button {
+                    display: block;
+                    float: left;
+                    span {
+                        display: block;
+                    }
+                }
                 .last-btn {
                     margin-left: 10px;
                 }
                 .filter-link {
                     height: 100%;
                     display: block;
-                    span {
-                        display: block;
-                    }
-                    button {
-                        display: block;
-                    }
                 }
-            }
-            .filter-title-2 {
-                margin-left: 30px;
-            }
-            .column-selection,
-            .state-selection {
-                width: 160px;
-                margin-right: 5px;
-            }
-            .title-search {
-                width: 220px;
-                .el-input-group__append {
-                    padding-left: 8px;
-                    padding-right: 8px;
-                    overflow: hidden;
-                    transition: all 0.3s;
-                    &:hover {
-                        background: @base-color2;
-                        border-color: @base-color2;
-                        .el-icon-search {
-                            color: #fff;
+                .filter-title-2 {
+                    margin-left: 30px;
+                }
+                .column-selection,
+                .state-selection {
+                    width: 160px;
+                    margin-right: 5px;
+                }
+                .title-search {
+                    width: 220px;
+                    .el-input-group__append {
+                        padding-left: 8px;
+                        padding-right: 8px;
+                        overflow: hidden;
+                        transition: all 0.3s;
+                        &:hover {
+                            background: @base-color2;
+                            border-color: @base-color2;
+                            .el-icon-search {
+                                color: #fff;
+                            }
                         }
                     }
-                }
-                .el-icon-search {
-                    font-size: 20px;
-                    vertical-align: middle;
-                    transition: all 0.3s;
-                    position: relative;
-                    top: -1.5px;
+                    .el-icon-search {
+                        font-size: 20px;
+                        vertical-align: middle;
+                        transition: all 0.3s;
+                        position: relative;
+                        top: -1.5px;
+                    }
                 }
             }
             /* 三级菜单 */

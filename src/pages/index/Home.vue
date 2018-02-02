@@ -147,8 +147,6 @@ export default {
     Nav
   },
   mounted: function() {
-    //close loading
-    document.getElementById("loading").style.display = "none";
     this.$http
       .get("./static/mock/schoolList.json")
       .then(response => {

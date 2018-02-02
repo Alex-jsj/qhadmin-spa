@@ -7,7 +7,10 @@
 <script>
 export default {
   name: "App",
-  mounted: function() {}
+  mounted: function() {
+    //close loading
+    document.getElementById("loading").style.display = "none";
+  }
 };
 </script>
 
