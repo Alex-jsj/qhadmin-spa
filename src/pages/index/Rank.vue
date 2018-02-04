@@ -63,14 +63,17 @@
       </div>
     </div>
     <!-- Footer -->
-    <Footer></Footer>
+    <div id="Foot">
+      <div class="footer-container">
+        <p>中国美术学院版权所有 技术支持：启焕科技</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 /* 引入模块 */
 import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import Crumb from "@/components/Crumb";
 /* 排行榜*/
 export default {
@@ -261,11 +264,8 @@ export default {
   watch: {},
   components: {
     Nav,
-    Footer,
     Crumb
-  },
-  mounted: function() {},
-  methods: {}
+  }
 };
 </script>
 <style lang="less">
@@ -364,6 +364,31 @@ export default {
     }
     .solt-title.is-leaf {
       padding-left: 8px;
+    }
+  }
+}
+#Foot {
+  width: 100%;
+  padding: 24px 0;
+  .footer-container {
+    width: 1190px;
+    margin: 0 auto;
+    &::after {
+      content: "";
+      display: block;
+      visibility: hidden;
+      clear: both;
+    }
+    p {
+      font-size: 14px;
+      color: @base_grey;
+      a {
+        color: @base_grey;
+        transition: all 0.3s;
+        &:hover {
+          color: @text-hover;
+        }
+      }
     }
   }
 }

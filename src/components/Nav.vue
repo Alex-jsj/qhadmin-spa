@@ -97,7 +97,7 @@
           <router-link to="/pages/system_administrators/System_Administrators/SiteList" class="underline-hover">站点管理</router-link>
         </div>
         <div class="admin-index-btn xitong-left float-left">
-          <a href="javascript:void(0);" class="underline-hover">系统设置</a>
+          <router-link to="/pages/system_administrators/System_Administrators/SiteInfo" class="underline-hover">系统设置</router-link>
         </div>
         <div class="admin-index-btn float-right">
           <a href="javascript:void(0);" class="underline-hover" @click="system_info = true">系统信息</a>

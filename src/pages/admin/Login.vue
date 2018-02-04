@@ -333,7 +333,7 @@ export default {
     }
 
     .logo-text span {
-      font-size: 0.6rem;
+      font-size: 16px;
     }
   }
 
@@ -344,7 +344,7 @@ export default {
     bottom: 0;
     p {
       width: 100%;
-      font-size: 0.4rem;
+      font-size: 12px;
       text-align: center;
       position: absolute;
       top: 50%;
@@ -374,7 +374,7 @@ export default {
     height: 63.6vh;
     position: relative;
     .form-container {
-      width: 10rem;
+      width: 20%;
       position: absolute;
       left: 50%;
       top: 6.5vh;
@@ -394,10 +394,10 @@ export default {
     .iconfont {
       position: absolute;
       top: 0;
-      right: 0.2rem;
+      right: 7px;
       color: #888;
       z-index: 999;
-      font-size: 0.6rem;
+      font-size: 18px;
     }
 
     .el-input__inner {

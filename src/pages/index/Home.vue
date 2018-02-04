@@ -44,7 +44,7 @@
       </div>
     </div>
     <!-- Footer -->
-    <div id="footer">
+    <div id="Foot">
       <div class="footer-container">
         <p>中国美术学院版权所有 技术支持：启焕科技</p>
       </div>
@@ -178,7 +178,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/css/less_config.less";
+@import "../../assets/css/less_config";
 #index {
   width: 100%;
   position: relative;
@@ -307,7 +307,7 @@ export default {
     }
   }
 }
-#footer {
+#Foot {
   width: 100%;
   padding: 24px 0;
   .footer-container {
