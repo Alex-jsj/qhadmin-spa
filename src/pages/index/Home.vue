@@ -190,17 +190,30 @@ export default {
         width: 200px;
         margin-right: 33px;
         .el-input-group__append {
-          padding: 0 10px;
+          width: 40px;
+          height: 28px;
+          padding: 0;
           overflow: hidden;
           transition: all 0.3s;
+          position: relative;
           .el-button {
             transition: all 0.3s;
+            width: 40px;
+            height: 28px;
+            position: absolute;
+            top: -1px;
+            left: 0;
+            margin: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
           }
           [class*=" el-icon-"],
           [class^="el-icon-"] {
             font-size: 16px;
-            position: relative;
-            top: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             transition: all 0.3s;
           }
           &:hover {

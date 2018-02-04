@@ -150,6 +150,7 @@ export default {
   width: 100%;
   height: 100vh;
   position: relative;
+  overflow: hidden;
   #entry-list {
     width: 1200px;
     margin-left: 5px;
@@ -157,6 +158,7 @@ export default {
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
+    overflow: hidden;
     &::after {
       content: "";
       display: block;
