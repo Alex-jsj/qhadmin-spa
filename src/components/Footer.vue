@@ -115,8 +115,8 @@ export default {
   width: 100%;
   padding: 24px 0;
   .footer-container {
-    width: 1190px;
-    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
     &::after {
       content: "";
       display: block;

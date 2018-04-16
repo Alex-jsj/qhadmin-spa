@@ -26,20 +26,20 @@
       <!-- 表格 -->
       <div class="table-body">
         <el-table ref="multipleTable" :data="tableInfo" stripe size="small">
-          <el-table-column prop="uid" label="序号" width="50"></el-table-column>
-          <el-table-column prop="title" label="站点名称" width="150"></el-table-column>
-          <el-table-column prop="category" label="类别" width="80"></el-table-column>
-          <el-table-column prop="code" label="编码" width="60"></el-table-column>
-          <el-table-column prop="alias" label="别名" width="60"></el-table-column>
-          <el-table-column prop="domain_name" label="域名" width="120"></el-table-column>
-          <el-table-column prop="date" label="创建时间" width="90"></el-table-column>
-          <el-table-column prop="state" label="状态" width="60"></el-table-column>
-          <el-table-column label="排序" width="50">
+          <el-table-column prop="uid" label="序号"></el-table-column>
+          <el-table-column prop="title" label="站点名称"></el-table-column>
+          <el-table-column prop="category" label="类别"></el-table-column>
+          <el-table-column prop="code" label="编码"></el-table-column>
+          <el-table-column prop="alias" label="别名"></el-table-column>
+          <el-table-column prop="domain_name" label="域名"></el-table-column>
+          <el-table-column prop="date" label="创建时间"></el-table-column>
+          <el-table-column prop="state" label="状态"></el-table-column>
+          <el-table-column label="排序">
             <div slot-scope="scope" class="table-sort-input">
               <el-input type="text" size="mini" @blur="sortBlur(scope.$index, tableInfo)" :value="scope.row.count"></el-input>
             </div>
           </el-table-column>
-          <el-table-column label="操作" width="500" fixed="right">
+          <el-table-column label="操作" width="220">
             <div slot-scope="scope" class="control-btn">
               <el-button size="mini">
                 <router-link :to="scope.row.url">访问</router-link>

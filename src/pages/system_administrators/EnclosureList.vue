@@ -34,7 +34,7 @@
         <el-table ref="multipleTable" :data="tableInfo" stripe size="small" @selection-change="handleSelectionChange">
           <el-table-column type="selection"></el-table-column>
           <el-table-column prop="uid" label="ID" width="40"></el-table-column>
-          <el-table-column prop="title" label="文件名称" width="160"></el-table-column>
+          <el-table-column prop="title" label="文件名称"></el-table-column>
           <el-table-column prop="preview" label="预览" width="150">
             <div slot-scope="scope">
               <div v-if="scope.row.is_img" class="carousel-img">
@@ -45,11 +45,11 @@
               </div>
             </div>
           </el-table-column>
-          <el-table-column prop="file_size" label="文件大小" width="80"></el-table-column>
-          <el-table-column prop="uploading_person" label="上传人" width="80"></el-table-column>
-          <el-table-column prop="date" label="添加时间" width="90"></el-table-column>
-          <el-table-column prop="site" label="所属站点" width="100"></el-table-column>
-          <el-table-column prop="file_type" label="文件类型" width="70"></el-table-column>
+          <el-table-column prop="file_size" label="文件大小"></el-table-column>
+          <el-table-column prop="uploading_person" label="上传人"></el-table-column>
+          <el-table-column prop="date" label="添加时间" width="110"></el-table-column>
+          <el-table-column prop="site" label="所属站点"></el-table-column>
+          <el-table-column prop="file_type" label="文件类型"></el-table-column>
           <el-table-column label="操作" width="130">
             <div slot-scope="scope" class="control-btn">
               <el-button size="small">更改</el-button>

@@ -33,19 +33,19 @@
       <div class="table-body">
         <el-table ref="multipleTable" :data="tableInfo" stripe size="small" @selection-change="handleSelectionChange">
           <el-table-column type="selection"></el-table-column>
-          <el-table-column prop="uid" label="ID" width="50"></el-table-column>
-          <el-table-column prop="title" label="标题" width="250"></el-table-column>
-          <el-table-column prop="column" label="栏目" width="80"></el-table-column>
-          <el-table-column prop="site" label="所属站点" width="130"></el-table-column>
-          <el-table-column prop="state" label="发布状态" width="80">
+          <el-table-column prop="uid" label="ID" width="60"></el-table-column>
+          <el-table-column prop="title" label="标题"></el-table-column>
+          <el-table-column prop="column" label="栏目"></el-table-column>
+          <el-table-column prop="site" label="所属站点"></el-table-column>
+          <el-table-column prop="state" label="发布状态">
             <div slot-scope="scope">
               <el-tag close-transition :class="scope.row.stateClass" size="mini">{{scope.row.state}}</el-tag>
             </div>
           </el-table-column>
-          <el-table-column prop="date" label="创建日期" width="100"></el-table-column>
-          <el-table-column prop="author" label="创建人" width="85"></el-table-column>
-          <el-table-column prop="count" label="浏览次数" width="70"></el-table-column>
-          <el-table-column label="操作" width="250" fixed="right">
+          <el-table-column prop="date" label="创建日期"></el-table-column>
+          <el-table-column prop="author" label="创建人"></el-table-column>
+          <el-table-column prop="count" label="浏览次数"></el-table-column>
+          <el-table-column label="操作" width="250">
             <div slot-scope="scope" class="control-btn">
               <el-button size="small">访问</el-button>
               <el-button size="small">审核</el-button>

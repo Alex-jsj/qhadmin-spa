@@ -61,6 +61,10 @@ export default {
   width: 100%;
   min-width: 1190px;
   background: @base-color;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
   .header-container {
     width: 1190px;
     height: 36px;

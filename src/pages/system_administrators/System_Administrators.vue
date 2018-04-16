@@ -15,7 +15,7 @@
       <!-- 侧边导航 -->
       <SideBar></SideBar>
       <!-- Subject -->
-      <div class="subject public-container float-right">
+      <div class="subject public-container">
         <router-view></router-view>
       </div>
     </div>

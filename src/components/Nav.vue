@@ -191,6 +191,7 @@ export default {
   width: 100%;
   height: 90px;
   background: #fff;
+  margin-top: 36px;
   .nav-container {
     width: 1190px;
     margin: 0 auto;
